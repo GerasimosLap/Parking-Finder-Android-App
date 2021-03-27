@@ -1,0 +1,274 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: MainActivity</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.parking.ui.login</a> ]
+</div>
+
+<h1>Coverage Summary for Class: MainActivity (com.example.parking.ui.login)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MainActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 22)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">MainActivity$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">MainActivity$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">MainActivity$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 6)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 32)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.parking.ui.login;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;
+<i>4</i>&nbsp;import android.app.Activity;
+<i>5</i>&nbsp;import android.app.AlertDialog;
+<i>6</i>&nbsp;import android.content.Intent;
+<i>7</i>&nbsp;import android.os.Build;
+<i>8</i>&nbsp;import android.os.Bundle;
+<i>9</i>&nbsp;import android.view.View;
+<i>10</i>&nbsp;import android.widget.Button;
+<i>11</i>&nbsp;import android.widget.EditText;
+<i>12</i>&nbsp;import android.widget.Toast;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;import androidx.annotation.RequiresApi;
+<i>15</i>&nbsp;import androidx.appcompat.app.AppCompatActivity;
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;import com.example.parking.R;
+<i>18</i>&nbsp;import com.example.parking.memorydao.MemoryInitializer;
+<i>19</i>&nbsp;import com.example.parking.ui.homescreen.HomeScreenActivity;
+<i>20</i>&nbsp;import com.example.parking.ui.signup.SignUp;
+<i>21</i>&nbsp;
+<b class="nc"><i>22</i>&nbsp;public class MainActivity extends AppCompatActivity implements LoginView{</b>
+<i>23</i>&nbsp;    LoginPresenter presenter;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    /**
+<i>26</i>&nbsp;     * ?????????? ?? layout ??? ???????????
+<i>27</i>&nbsp;     * ?? activity.
+<i>28</i>&nbsp;     * @param savedInstanceState ?? Instance state
+<i>29</i>&nbsp;     */
+<i>30</i>&nbsp;    @RequiresApi(api = Build.VERSION_CODES.O)
+<i>31</i>&nbsp;    @Override
+<i>32</i>&nbsp;    public void onCreate(Bundle savedInstanceState) {
+<b class="nc"><i>33</i>&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc"><i>34</i>&nbsp;        setContentView(R.layout.activity_login);</b>
+<b class="nc"><i>35</i>&nbsp;        MemoryInitializer.prepareData();</b>
+<b class="nc"><i>36</i>&nbsp;        Button login = findViewById(R.id.login);</b>
+<b class="nc"><i>37</i>&nbsp;        Button signup = findViewById(R.id.login2);</b>
+<b class="nc"><i>38</i>&nbsp;        Button forgot = findViewById(R.id.forgotpassword);</b>
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;
+<b class="nc"><i>41</i>&nbsp;        presenter = new LoginPresenter(this,MemoryInitializer.getUserDAO());</b>
+<b class="nc"><i>42</i>&nbsp;        login.setOnClickListener(new View.OnClickListener() {</b>
+<i>43</i>&nbsp;            @Override
+<i>44</i>&nbsp;            public void onClick(View v) {
+<b class="nc"><i>45</i>&nbsp;                presenter.login(getUsername(),getPassword());</b>
+<i>46</i>&nbsp;            }
+<i>47</i>&nbsp;        });
+<b class="nc"><i>48</i>&nbsp;        signup.setOnClickListener(new View.OnClickListener() {</b>
+<i>49</i>&nbsp;            @Override
+<i>50</i>&nbsp;            public void onClick(View v) {
+<b class="nc"><i>51</i>&nbsp;                presenter.signup();</b>
+<i>52</i>&nbsp;            }
+<i>53</i>&nbsp;        });
+<i>54</i>&nbsp;
+<b class="nc"><i>55</i>&nbsp;        forgot.setOnClickListener(new View.OnClickListener() {</b>
+<i>56</i>&nbsp;            @Override
+<i>57</i>&nbsp;            public void onClick(View v) {
+<b class="nc"><i>58</i>&nbsp;                new AlertDialog.Builder(MainActivity.this)</b>
+<b class="nc"><i>59</i>&nbsp;                        .setCancelable(true)</b>
+<b class="nc"><i>60</i>&nbsp;                        .setTitle(&quot;Password for user &quot; + getUsername()+ &quot; is:&quot;)</b>
+<b class="nc"><i>61</i>&nbsp;                        .setMessage(presenter.forgot(getUsername()))</b>
+<b class="nc"><i>62</i>&nbsp;                        .setPositiveButton(R.string.OK, null).create().show();</b>
+<i>63</i>&nbsp;            }
+<i>64</i>&nbsp;        });
+<i>65</i>&nbsp;    }
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;    /**
+<i>68</i>&nbsp;     * ?????????? ??? ??? Intent ??? ????????? ??? ?????? ??? activity SignUp
+<i>69</i>&nbsp;     * ????? ??????? ?? ?????? sign up.
+<i>70</i>&nbsp;     */
+<i>71</i>&nbsp;    public void signup(){
+<b class="nc"><i>72</i>&nbsp;        Intent myIntent = new Intent(this, SignUp.class);</b>
+<b class="nc"><i>73</i>&nbsp;        startActivityForResult(myIntent,1);</b>
+<i>74</i>&nbsp;    }
+<i>75</i>&nbsp;
+<i>76</i>&nbsp;
+<i>77</i>&nbsp;    @Override
+<i>78</i>&nbsp;    public String getUsername(){
+<b class="nc"><i>79</i>&nbsp;        return ((EditText) findViewById(R.id.username)).getText().toString();</b>
+<i>80</i>&nbsp;    }
+<i>81</i>&nbsp;
+<i>82</i>&nbsp;    @Override
+<i>83</i>&nbsp;    public String getPassword(){
+<b class="nc"><i>84</i>&nbsp;        return ((EditText) findViewById(R.id.passwordLogIn)).getText().toString();</b>
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;    }
+<i>87</i>&nbsp;
+<i>88</i>&nbsp;    /**
+<i>89</i>&nbsp;     * ?????????? ?? ??? Intent ??? ???? ??? logged in
+<i>90</i>&nbsp;     * ?????? ???? ?????? ??? ?????.
+<i>91</i>&nbsp;     */
+<i>92</i>&nbsp;    @Override
+<i>93</i>&nbsp;    public void moveOn() {
+<b class="nc"><i>94</i>&nbsp;        Intent intent = new Intent(this, HomeScreenActivity.class);</b>
+<b class="nc"><i>95</i>&nbsp;        intent.putExtra(&quot;username&quot;, getUsername());</b>
+<b class="nc"><i>96</i>&nbsp;        startActivity(intent);</b>
+<i>97</i>&nbsp;    }
+<i>98</i>&nbsp;
+<i>99</i>&nbsp;
+<i>100</i>&nbsp;    /**
+<i>101</i>&nbsp;     * ????????? ??? Toast.
+<i>102</i>&nbsp;     * @param text ?? ??????????? ??? ?? ??????????
+<i>103</i>&nbsp;     */
+<i>104</i>&nbsp;
+<i>105</i>&nbsp;    @Override
+<i>106</i>&nbsp;    public void createToast(String text) {
+<b class="nc"><i>107</i>&nbsp;        Toast.makeText(this,text,Toast.LENGTH_SHORT).show();</b>
+<i>108</i>&nbsp;    }
+<i>109</i>&nbsp;
+<i>110</i>&nbsp;    /**
+<i>111</i>&nbsp;     * ??????? ?????? Toast ??? ??? ???? ???? ?? ?? sign up
+<i>112</i>&nbsp;     * @param requestCode ? ?????????? ???????
+<i>113</i>&nbsp;     * @param resultCode ? ??????? ??? ?????????????
+<i>114</i>&nbsp;     * @param data ?? intent
+<i>115</i>&nbsp;     */
+<i>116</i>&nbsp;    @Override
+<i>117</i>&nbsp;    public void onActivityResult(int requestCode, int resultCode, Intent data)
+<i>118</i>&nbsp;    {
+<b class="nc"><i>119</i>&nbsp;        super.onActivityResult(requestCode, resultCode, data);</b>
+<i>120</i>&nbsp;
+<b class="nc"><i>121</i>&nbsp;        if(requestCode == 1 &amp;&amp; resultCode == Activity.RESULT_OK)</b>
+<i>122</i>&nbsp;        {
+<i>123</i>&nbsp;
+<b class="nc"><i>124</i>&nbsp;            Toast.makeText(this,data.getStringExtra(&quot;message_to_toast&quot;),Toast.LENGTH_SHORT).show();</b>
+<i>125</i>&nbsp;        }
+<i>126</i>&nbsp;    }
+<i>127</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:59</div>
+</div>
+</body>
+</html>

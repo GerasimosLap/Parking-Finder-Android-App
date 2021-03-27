@@ -1,0 +1,216 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ParkingSpace</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.parking.domain</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ParkingSpace (com.example.parking.domain)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ParkingSpace</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (19/ 19)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (48/ 48)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.parking.domain;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.os.Build;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import androidx.annotation.RequiresApi;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import com.example.parking.util.Credits;
+<i>8</i>&nbsp;import com.example.parking.util.TimeRange;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;import java.text.DateFormat;
+<i>11</i>&nbsp;import java.text.SimpleDateFormat;
+<i>12</i>&nbsp;import java.util.Calendar;
+<i>13</i>&nbsp;import java.util.Date;
+<i>14</i>&nbsp;import java.util.Locale;
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;@RequiresApi(api = Build.VERSION_CODES.O)
+<i>17</i>&nbsp;public class ParkingSpace {
+<i>18</i>&nbsp;	private Address address;
+<i>19</i>&nbsp;	private boolean availability;
+<i>20</i>&nbsp;	private Credits price;
+<i>21</i>&nbsp;	private TimeRange timeRange;
+<i>22</i>&nbsp;	private Date timeOfExchange;
+<i>23</i>&nbsp;	private User parkedUser;
+<i>24</i>&nbsp;	private String plate;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;	private static final double max_amount = 16.0;
+<i>27</i>&nbsp;	private static final double min_amount = 0.0;
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;
+<b class="fc"><i>30</i>&nbsp;	public ParkingSpace(Address address, boolean availability, Credits price, TimeRange timeRange, Date timeOfExchange, User parkedUser,String plate) {</b>
+<b class="fc"><i>31</i>&nbsp;		this.address = address;</b>
+<b class="fc"><i>32</i>&nbsp;		this.availability = availability;</b>
+<b class="fc"><i>33</i>&nbsp;		this.price = price;</b>
+<b class="fc"><i>34</i>&nbsp;		this.timeRange = timeRange;</b>
+<b class="fc"><i>35</i>&nbsp;		this.timeOfExchange=timeOfExchange;</b>
+<b class="fc"><i>36</i>&nbsp;		this.parkedUser=parkedUser;</b>
+<b class="fc"><i>37</i>&nbsp;		this.plate = plate;</b>
+<b class="fc"><i>38</i>&nbsp;	}</b>
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;
+<b class="fc"><i>43</i>&nbsp;	public ParkingSpace() {</b>
+<b class="fc"><i>44</i>&nbsp;		this.address = new Address();</b>
+<b class="fc"><i>45</i>&nbsp;		this.availability = false;</b>
+<b class="fc"><i>46</i>&nbsp;		this.price = new Credits();</b>
+<b class="fc"><i>47</i>&nbsp;		this.timeRange = new TimeRange(30);</b>
+<b class="fc"><i>48</i>&nbsp;		this.timeOfExchange = new Date();</b>
+<b class="fc"><i>49</i>&nbsp;		this.plate = &quot;&quot;;</b>
+<b class="fc"><i>50</i>&nbsp;	}</b>
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;	public Address getAddress() {
+<b class="fc"><i>53</i>&nbsp;		return address;</b>
+<i>54</i>&nbsp;	}
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;	public void setAddress(Address address) {
+<b class="fc"><i>57</i>&nbsp;		this.address = address;</b>
+<b class="fc"><i>58</i>&nbsp;	}</b>
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;	public boolean getAvailability() {
+<b class="fc"><i>61</i>&nbsp;		return availability;</b>
+<i>62</i>&nbsp;	}
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;	public void setAvailability(boolean availability) {
+<b class="fc"><i>65</i>&nbsp;		this.availability = availability;</b>
+<b class="fc"><i>66</i>&nbsp;	}</b>
+<i>67</i>&nbsp;
+<i>68</i>&nbsp;	public Credits getPrice() {
+<b class="fc"><i>69</i>&nbsp;		return price;</b>
+<i>70</i>&nbsp;	}
+<i>71</i>&nbsp;
+<i>72</i>&nbsp;	public void setPrice(Credits price) {
+<b class="fc"><i>73</i>&nbsp;		if(price.getPoints()&gt;= min_amount &amp;&amp; price.getPoints()&lt;=max_amount) {</b>
+<b class="fc"><i>74</i>&nbsp;			this.price = price;</b>
+<i>75</i>&nbsp;		}
+<b class="fc"><i>76</i>&nbsp;	}</b>
+<i>77</i>&nbsp;
+<i>78</i>&nbsp;	public User getParkedUser() {
+<b class="fc"><i>79</i>&nbsp;		return parkedUser;</b>
+<i>80</i>&nbsp;	}
+<i>81</i>&nbsp;
+<i>82</i>&nbsp;	public void setParkedUser(User parkedUser) {
+<b class="fc"><i>83</i>&nbsp;		this.parkedUser = parkedUser;</b>
+<b class="fc"><i>84</i>&nbsp;	}</b>
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;	public String getPlate() {
+<b class="fc"><i>87</i>&nbsp;		return plate;</b>
+<i>88</i>&nbsp;	}
+<i>89</i>&nbsp;
+<i>90</i>&nbsp;	public void setPlate(String plate) {
+<b class="fc"><i>91</i>&nbsp;		this.plate = plate;</b>
+<b class="fc"><i>92</i>&nbsp;	}</b>
+<i>93</i>&nbsp;	public TimeRange getTimeRange() {
+<b class="fc"><i>94</i>&nbsp;		return timeRange;</b>
+<i>95</i>&nbsp;	}
+<i>96</i>&nbsp;
+<i>97</i>&nbsp;	public void setTimeRange(TimeRange timeRange) {
+<b class="fc"><i>98</i>&nbsp;		this.timeRange = timeRange;</b>
+<b class="fc"><i>99</i>&nbsp;	}</b>
+<i>100</i>&nbsp;
+<i>101</i>&nbsp;	public Date getTimeOfExchange() {
+<b class="fc"><i>102</i>&nbsp;		return timeOfExchange;</b>
+<i>103</i>&nbsp;	}
+<i>104</i>&nbsp;
+<i>105</i>&nbsp;	public void setTimeOfExchange(Date timeOfExchange) {
+<b class="fc"><i>106</i>&nbsp;		this.timeOfExchange = timeOfExchange;</b>
+<b class="fc"><i>107</i>&nbsp;	}</b>
+<i>108</i>&nbsp;
+<i>109</i>&nbsp;	public void makeParkingUnavailable(){
+<b class="fc"><i>110</i>&nbsp;		availability=false;</b>
+<b class="fc"><i>111</i>&nbsp;		setTimeOfExchange(new Date(System.currentTimeMillis()));</b>
+<b class="fc"><i>112</i>&nbsp;	}</b>
+<i>113</i>&nbsp;
+<i>114</i>&nbsp;	public void makeParkingAvailable(){
+<b class="fc"><i>115</i>&nbsp;		availability=true;</b>
+<b class="fc"><i>116</i>&nbsp;		setTimeOfExchange(new Date());</b>
+<b class="fc"><i>117</i>&nbsp;	}</b>
+<i>118</i>&nbsp;
+<i>119</i>&nbsp;
+<i>120</i>&nbsp;	public String toString() {
+<b class="fc"><i>121</i>&nbsp;		DateFormat dateFormat = new SimpleDateFormat(&quot;yyyy-mm-dd hh:mm:ss&quot;);</b>
+<b class="fc"><i>122</i>&nbsp;		String strDate = dateFormat.format(timeOfExchange);</b>
+<b class="fc"><i>123</i>&nbsp;		return &quot;ParkingSpace{&quot; +</b>
+<i>124</i>&nbsp;				&quot;address=&quot; + address +
+<i>125</i>&nbsp;				&quot;, availability=&quot; + availability +
+<i>126</i>&nbsp;				&quot;, price=&quot; + price +
+<i>127</i>&nbsp;				&quot;, timeRange=&quot; + timeRange +
+<i>128</i>&nbsp;				&quot;, timeOfExchange=&quot; + strDate +
+<i>129</i>&nbsp;				&quot;, parkedUser=&quot; + parkedUser +
+<i>130</i>&nbsp;				&quot;, plate=&#39;&quot; + plate + &#39;\&#39;&#39; +
+<i>131</i>&nbsp;				&#39;}&#39;;
+<i>132</i>&nbsp;	}
+<i>133</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-05-02 19:22</div>
+</div>
+</body>
+</html>

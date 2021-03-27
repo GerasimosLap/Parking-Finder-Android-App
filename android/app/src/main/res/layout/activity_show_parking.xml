@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constrainedWidth="true"
+    tools:layout_editor_absoluteX="-79dp"
+    tools:layout_editor_absoluteY="245dp">
+
+    <Button
+        android:id="@+id/ReviewsofParkedUser"
+        android:layout_width="145dp"
+        android:layout_height="0dp"
+        android:text="@string/reviews"
+        app:layout_constraintBottom_toTopOf="@+id/sendParkingRequest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/AddressForRequest"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:text="@string/address"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/ParkedUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/editText"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/e_t_a"
+        android:textAllCaps="true"
+        android:textSize="14sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/ReviewsofParkedUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ParkedVehicle"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/ParkedVehicle"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:text="@string/parkedvehicle"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ParkedUser"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/ParkedUser"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        android:text="@string/parked_user"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/ParkedVehicle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddressForRequest"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/sendParkingRequest"
+        android:layout_width="145dp"
+        android:layout_height="0dp"
+        android:text="@string/send_parking_request"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ReviewsofParkedUser"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

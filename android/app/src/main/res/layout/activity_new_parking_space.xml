@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.newParking.NewParkingSpace">
+
+
+    <EditText
+        android:id="@+id/Street"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/street"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/StreetNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/streetNumber"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/Street"
+        app:layout_constraintTop_toBottomOf="@+id/Street"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/creditsForParking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/creditsFor"
+        android:inputType="number|textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/CarChoice"
+        app:layout_constraintStart_toStartOf="@+id/zipCode"
+        app:layout_constraintTop_toBottomOf="@+id/zipCode"
+        app:layout_constraintVertical_bias="0.045"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/zipCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/zip_code"
+        android:inputType="number|textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/StreetNumber"
+        app:layout_constraintTop_toBottomOf="@+id/StreetNumber"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/addVehicleBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
+        android:text="@string/addSpace"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/CarChoice"
+        android:layout_width="213dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="76dp"
+        android:spinnerMode="dialog"
+        app:layout_constraintBottom_toTopOf="@+id/addVehicleBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/dateTimeToInfoNewParking"
+        android:layout_width="152dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:text="@string/date_time_to"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/creditsForParking" />
+
+    <TextView
+        android:id="@+id/dateTimeFromInfoNewParking"
+        android:layout_width="147dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="44dp"
+        android:gravity="center"
+        android:text="@string/date_time_from"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/creditsForParking" />
+
+    <Button
+        android:id="@+id/setDateTimeToNewParking"
+        android:layout_width="91dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginRight="52dp"
+        android:text="@string/set_to"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateTimeToInfoNewParking" />
+
+    <Button
+        android:id="@+id/setDateTimeFromNewParking"
+        android:layout_width="91dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginLeft="42dp"
+        android:text="@string/set_from"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateTimeFromInfoNewParking" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

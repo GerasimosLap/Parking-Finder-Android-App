@@ -1,0 +1,322 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: FindParking</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.parking.ui.findParking</a> ]
+</div>
+
+<h1>Coverage Summary for Class: FindParking (com.example.parking.ui.findParking)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FindParking</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 57)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">FindParking$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 7)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">FindParking$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 7)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 71)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.parking.ui.findParking;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.app.Activity;
+<i>4</i>&nbsp;import android.content.Context;
+<i>5</i>&nbsp;import android.content.Intent;
+<i>6</i>&nbsp;import android.graphics.Color;
+<i>7</i>&nbsp;import android.graphics.PorterDuff;
+<i>8</i>&nbsp;import android.os.Build;
+<i>9</i>&nbsp;import android.os.Bundle;
+<i>10</i>&nbsp;import android.view.LayoutInflater;
+<i>11</i>&nbsp;import android.view.View;
+<i>12</i>&nbsp;import android.widget.Button;
+<i>13</i>&nbsp;import android.widget.EditText;
+<i>14</i>&nbsp;import android.widget.ImageButton;
+<i>15</i>&nbsp;import android.widget.LinearLayout;
+<i>16</i>&nbsp;import android.widget.TextView;
+<i>17</i>&nbsp;import android.widget.Toast;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;import androidx.annotation.RequiresApi;
+<i>20</i>&nbsp;import androidx.appcompat.app.AppCompatActivity;
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;import com.example.parking.R;
+<i>23</i>&nbsp;import com.example.parking.domain.ParkingSpace;
+<i>24</i>&nbsp;import com.example.parking.memorydao.MemoryInitializer;
+<i>25</i>&nbsp;import com.example.parking.ui.showParkingSpace.ShowParkingSpace;
+<i>26</i>&nbsp;import com.google.gson.Gson;
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;import java.time.LocalDateTime;
+<i>29</i>&nbsp;import java.util.ArrayList;
+<i>30</i>&nbsp;
+<b class="nc"><i>31</i>&nbsp;public class FindParking extends AppCompatActivity implements FindParkingView{</b>
+<i>32</i>&nbsp;    FindParkingPresenter presenter;
+<i>33</i>&nbsp;    LocalDateTime expectedArrivalDateTime;
+<i>34</i>&nbsp;    EditText expectedArrival;
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    @Override
+<i>37</i>&nbsp;    protected void onCreate(Bundle savedInstanceState) {
+<b class="nc"><i>38</i>&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc"><i>39</i>&nbsp;        setContentView(R.layout.activity_find_parking);</b>
+<b class="nc"><i>40</i>&nbsp;        presenter = new FindParkingPresenter(this,MemoryInitializer.getParkingDAO());</b>
+<i>41</i>&nbsp;
+<b class="nc"><i>42</i>&nbsp;        expectedArrival = findViewById(R.id.expectedArrivalFindParking);</b>
+<b class="nc"><i>43</i>&nbsp;        ImageButton btn = findViewById(R.id.SearchButton);</b>
+<b class="nc"><i>44</i>&nbsp;        btn.setOnClickListener(new View.OnClickListener() {</b>
+<i>45</i>&nbsp;            @RequiresApi(api = Build.VERSION_CODES.O)
+<i>46</i>&nbsp;            @Override
+<i>47</i>&nbsp;            public void onClick(View v) {
+<b class="nc"><i>48</i>&nbsp;                if(expectedArrival.getText().toString().trim().length() == 0){</b>
+<b class="nc"><i>49</i>&nbsp;                    expectedArrival.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_ATOP);</b>
+<i>50</i>&nbsp;                    return;
+<i>51</i>&nbsp;                }else{
+<b class="nc"><i>52</i>&nbsp;                    expectedArrival.setBackgroundResource(android.R.drawable.edit_text);</b>
+<b class="nc"><i>53</i>&nbsp;                    expectedArrivalDateTime = LocalDateTime.now().plusMinutes(Integer.parseInt(expectedArrival.getText().toString()));</b>
+<i>54</i>&nbsp;                }
+<b class="nc"><i>55</i>&nbsp;                presenter.find();</b>
+<b class="nc"><i>56</i>&nbsp;                makeToast(getZip());</b>
+<i>57</i>&nbsp;            }
+<i>58</i>&nbsp;        });
+<i>59</i>&nbsp;    }
+<i>60</i>&nbsp;
+<i>61</i>&nbsp;    /**
+<i>62</i>&nbsp;     * @return ? ?????????? ??????? ?????? ??? ?? ?????????? ??? ??????? ? ???????
+<i>63</i>&nbsp;     */
+<i>64</i>&nbsp;    public LocalDateTime getExpectedArrivalDateTime(){
+<b class="nc"><i>65</i>&nbsp;        return expectedArrivalDateTime;</b>
+<i>66</i>&nbsp;    }
+<i>67</i>&nbsp;
+<i>68</i>&nbsp;    /**
+<i>69</i>&nbsp;     * @return ? ?.?.
+<i>70</i>&nbsp;     */
+<i>71</i>&nbsp;    public String getZip(){
+<b class="nc"><i>72</i>&nbsp;        return ((EditText) findViewById(R.id.ZipForParking)).getText().toString();</b>
+<i>73</i>&nbsp;    }
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;
+<i>76</i>&nbsp;    /**
+<i>77</i>&nbsp;     * @param error ?? ?????? ?????? ??? ?? ?????????? ??? ????? ??? zip
+<i>78</i>&nbsp;     */
+<i>79</i>&nbsp;    public void setErrorToZip(String error){
+<b class="nc"><i>80</i>&nbsp;        ((EditText)findViewById(R.id.ZipForParking)).setError(error);</b>
+<i>81</i>&nbsp;    }
+<i>82</i>&nbsp;
+<i>83</i>&nbsp;    /**
+<i>84</i>&nbsp;     * ????????? ???? ??? ??????? ?????? parking
+<i>85</i>&nbsp;     * @param DaoParkingSpace ????? ?? ??? ??????? ?????? parking
+<i>86</i>&nbsp;     */
+<i>87</i>&nbsp;    @RequiresApi(api = Build.VERSION_CODES.O)
+<i>88</i>&nbsp;    public void showParkingSpace(ArrayList&lt;ParkingSpace&gt; DaoParkingSpace){
+<b class="nc"><i>89</i>&nbsp;        int colorBackground = Color.parseColor(&quot;#337FFF&quot;);</b>
+<b class="nc"><i>90</i>&nbsp;        int colorText = Color.parseColor(&quot;#ffffff&quot;);</b>
+<i>91</i>&nbsp;
+<i>92</i>&nbsp;
+<b class="nc"><i>93</i>&nbsp;        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);</b>
+<b class="nc"><i>94</i>&nbsp;        View v = inflater.inflate(R.layout.activity_find_parking, null);</b>
+<b class="nc"><i>95</i>&nbsp;        ArrayList&lt;Button&gt; buttons = new ArrayList&lt;&gt;();</b>
+<b class="nc"><i>96</i>&nbsp;        LinearLayout sv = v.findViewById(R.id.ResultsList);</b>
+<b class="nc"><i>97</i>&nbsp;        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);</b>
+<b class="nc"><i>98</i>&nbsp;        layoutParams.setMargins(0, 0, 0, 30);</b>
+<b class="nc"><i>99</i>&nbsp;        int padding = 30;</b>
+<b class="nc"><i>100</i>&nbsp;        for (int i = 0; i &lt; DaoParkingSpace.size(); i++) {</b>
+<b class="nc"><i>101</i>&nbsp;            LinearLayout newLayout = new LinearLayout(this);</b>
+<b class="nc"><i>102</i>&nbsp;            newLayout.setOrientation(LinearLayout.VERTICAL);</b>
+<b class="nc"><i>103</i>&nbsp;            newLayout.setBackgroundColor(colorBackground);</b>
+<b class="nc"><i>104</i>&nbsp;            ParkingSpace p = DaoParkingSpace.get(i);</b>
+<b class="nc"><i>105</i>&nbsp;            final Button btn = new Button(this);</b>
+<b class="nc"><i>106</i>&nbsp;            btn.setBackgroundColor(colorBackground);</b>
+<b class="nc"><i>107</i>&nbsp;            String details = &quot;ADDRESS: &quot; + p.getAddress().toString() + &quot; PARKED USER: &quot;+ p.getParkedUser().getUsername() +</b>
+<b class="nc"><i>108</i>&nbsp;                    &quot; AVAILABILITY: &quot; + p.getTimeRange()+ &quot; CREDITS: &quot;+ p.getPrice().getPoints();</b>
+<b class="nc"><i>109</i>&nbsp;            btn.setText(details);</b>
+<b class="nc"><i>110</i>&nbsp;            btn.setTextSize(11);</b>
+<b class="nc"><i>111</i>&nbsp;            btn.setTextColor(colorText);</b>
+<b class="nc"><i>112</i>&nbsp;            btn.setLayoutParams (new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, 200));</b>
+<b class="nc"><i>113</i>&nbsp;            newLayout.addView(btn);</b>
+<b class="nc"><i>114</i>&nbsp;            buttons.add(btn);</b>
+<b class="nc"><i>115</i>&nbsp;            String info =  p.getParkedUser().getUsername();</b>
+<b class="nc"><i>116</i>&nbsp;            TextView data = new TextView(this);</b>
+<b class="nc"><i>117</i>&nbsp;            data.setText(info);</b>
+<b class="nc"><i>118</i>&nbsp;            data.setTextSize(10);</b>
+<b class="nc"><i>119</i>&nbsp;            data.setTextColor(colorText);</b>
+<b class="nc"><i>120</i>&nbsp;            newLayout.addView(data);</b>
+<b class="nc"><i>121</i>&nbsp;            newLayout.setLayoutParams(layoutParams);</b>
+<b class="nc"><i>122</i>&nbsp;            newLayout.setPadding(padding,padding,padding,padding);</b>
+<b class="nc"><i>123</i>&nbsp;            sv.addView(newLayout);</b>
+<b class="nc"><i>124</i>&nbsp;            setParkingOnClickListener(btn,p);</b>
+<i>125</i>&nbsp;        }
+<b class="nc"><i>126</i>&nbsp;        setContentView(v);</b>
+<i>127</i>&nbsp;
+<i>128</i>&nbsp;    }
+<i>129</i>&nbsp;
+<i>130</i>&nbsp;    /**
+<i>131</i>&nbsp;     * ???????? ??? Toast.
+<i>132</i>&nbsp;     * @param m ?? ??????????? ??? Toast.
+<i>133</i>&nbsp;     */
+<i>134</i>&nbsp;    public void makeToast(String m){
+<b class="nc"><i>135</i>&nbsp;        Toast.makeText(this,m, Toast.LENGTH_SHORT).show();</b>
+<i>136</i>&nbsp;    }
+<i>137</i>&nbsp;
+<i>138</i>&nbsp;    public void setParkingOnClickListener(Button b,ParkingSpace parkspa) {
+<b class="nc"><i>139</i>&nbsp;        b.setOnClickListener(</b>
+<i>140</i>&nbsp;                    new View.OnClickListener()
+<b class="nc"><i>141</i>&nbsp;                    {</b>
+<i>142</i>&nbsp;
+<i>143</i>&nbsp;                        @RequiresApi(api = Build.VERSION_CODES.O)
+<i>144</i>&nbsp;
+<i>145</i>&nbsp;                        public void onClick(View view)
+<i>146</i>&nbsp;                        {
+<b class="nc"><i>147</i>&nbsp;                            Gson gson = new Gson();</b>
+<b class="nc"><i>148</i>&nbsp;                            String parkingSpaceAsAString = gson.toJson(parkspa);</b>
+<b class="nc"><i>149</i>&nbsp;                            Intent myIntent = new Intent(FindParking.this, ShowParkingSpace.class);</b>
+<b class="nc"><i>150</i>&nbsp;                            myIntent.putExtra(&quot;Username&quot;, getUserName());</b>
+<b class="nc"><i>151</i>&nbsp;                            myIntent.putExtra(&quot;parkingSpace&quot;,parkingSpaceAsAString);</b>
+<b class="nc"><i>152</i>&nbsp;                            startActivityForResult(myIntent,1);</b>
+<i>153</i>&nbsp;
+<i>154</i>&nbsp;                        }
+<i>155</i>&nbsp;                    });
+<i>156</i>&nbsp;
+<i>157</i>&nbsp;    }
+<i>158</i>&nbsp;
+<i>159</i>&nbsp;
+<i>160</i>&nbsp;    /**
+<i>161</i>&nbsp;     * @return ?? ????? ??????
+<i>162</i>&nbsp;     */
+<i>163</i>&nbsp;    public String getUserName()
+<i>164</i>&nbsp;    {
+<b class="nc"><i>165</i>&nbsp;        return this.getIntent().hasExtra(&quot;username&quot;) ? this.getIntent().getExtras().getString(&quot;username&quot;) : null;</b>
+<i>166</i>&nbsp;    }
+<i>167</i>&nbsp;
+<i>168</i>&nbsp;    @Override
+<i>169</i>&nbsp;    public void onBackPressed() {
+<b class="nc"><i>170</i>&nbsp;        super.onBackPressed();</b>
+<b class="nc"><i>171</i>&nbsp;        this.finish();</b>
+<i>172</i>&nbsp;    }
+<i>173</i>&nbsp;
+<i>174</i>&nbsp;    @Override
+<i>175</i>&nbsp;    protected void onResume() {
+<b class="nc"><i>176</i>&nbsp;        super.onResume();</b>
+<b class="nc"><i>177</i>&nbsp;        String flag=getIntent().hasExtra(&quot;CodeForRestart&quot;) ? getIntent().getExtras().getString(&quot;CodeForRestart&quot;) : &quot;bad&quot;;</b>
+<b class="nc"><i>178</i>&nbsp;        if(flag.equals(&quot;OK&quot;)){</b>
+<b class="nc"><i>179</i>&nbsp;            recreate();</b>
+<i>180</i>&nbsp;        }
+<i>181</i>&nbsp;
+<i>182</i>&nbsp;    }
+<i>183</i>&nbsp;
+<i>184</i>&nbsp;    @Override
+<i>185</i>&nbsp;    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+<b class="nc"><i>186</i>&nbsp;        super.onActivityResult(requestCode, resultCode, data);</b>
+<b class="nc"><i>187</i>&nbsp;        if(resultCode == Activity.RESULT_OK)</b>
+<i>188</i>&nbsp;        {
+<b class="nc"><i>189</i>&nbsp;            finish();</b>
+<i>190</i>&nbsp;        }
+<i>191</i>&nbsp;    }
+<i>192</i>&nbsp;
+<i>193</i>&nbsp;
+<i>194</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:59</div>
+</div>
+</body>
+</html>

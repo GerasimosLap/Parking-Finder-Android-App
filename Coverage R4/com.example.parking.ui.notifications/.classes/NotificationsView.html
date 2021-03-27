@@ -1,0 +1,70 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: NotificationsView</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.parking.ui.notifications</a> ]
+</div>
+
+<h1>Coverage Summary for Class: NotificationsView (com.example.parking.ui.notifications)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">NotificationsView</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.parking.ui.notifications;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.parking.domain.ParkingRequest;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import java.util.ArrayList;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;public interface NotificationsView {
+<i>8</i>&nbsp;    String getUserName();
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;    /**
+<i>11</i>&nbsp;     * ????????? ?? ???????? ?????????? ???????.
+<i>12</i>&nbsp;     * @param DaoParkingSpace ?? ??????? parking request
+<i>13</i>&nbsp;     * @param notif ?? ??????????? ??? ?? ??????????
+<i>14</i>&nbsp;     */
+<i>15</i>&nbsp;    void showNotifications(ArrayList&lt;ParkingRequest&gt; DaoParkingSpace, String notif);
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    /**
+<i>19</i>&nbsp;     * ????????? ??? Toast.
+<i>20</i>&nbsp;     * @param s ?? ??????????? ??? ?? ??????????
+<i>21</i>&nbsp;     */
+<i>22</i>&nbsp;    void makeToast(String s);
+<i>23</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:59</div>
+</div>
+</body>
+</html>

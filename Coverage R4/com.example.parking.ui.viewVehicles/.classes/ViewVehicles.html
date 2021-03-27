@@ -1,0 +1,284 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ViewVehicles</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.parking.ui.viewVehicles</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ViewVehicles (com.example.parking.ui.viewVehicles)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ViewVehicles</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 53)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ViewVehicles$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 4)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ViewVehicles$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 59)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.parking.ui.viewVehicles;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.app.Activity;
+<i>4</i>&nbsp;import android.content.Context;
+<i>5</i>&nbsp;import android.content.Intent;
+<i>6</i>&nbsp;import android.graphics.Color;
+<i>7</i>&nbsp;import android.os.Bundle;
+<i>8</i>&nbsp;import android.view.LayoutInflater;
+<i>9</i>&nbsp;import android.view.View;
+<i>10</i>&nbsp;import android.widget.Button;
+<i>11</i>&nbsp;import android.widget.LinearLayout;
+<i>12</i>&nbsp;import android.widget.TextView;
+<i>13</i>&nbsp;import android.widget.Toast;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;import androidx.appcompat.app.AppCompatActivity;
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;import com.example.parking.R;
+<i>18</i>&nbsp;import com.example.parking.domain.Vehicle;
+<i>19</i>&nbsp;import com.example.parking.memorydao.MemoryInitializer;
+<i>20</i>&nbsp;import com.example.parking.ui.viewOneVehicle.ViewOneVehicle;
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;import java.util.ArrayList;
+<i>23</i>&nbsp;
+<b class="nc"><i>24</i>&nbsp;public class ViewVehicles extends AppCompatActivity implements ViewVehiclesView {</b>
+<i>25</i>&nbsp;    private ViewVehiclesPresenter presenter;
+<i>26</i>&nbsp;    private String intentUsername;
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    /**
+<i>29</i>&nbsp;     * ?????????? ?? layout ??? ???????????
+<i>30</i>&nbsp;     * ?? activity.
+<i>31</i>&nbsp;     * @param savedInstanceState ?? Instance state
+<i>32</i>&nbsp;     */
+<i>33</i>&nbsp;    @Override
+<i>34</i>&nbsp;    public void onCreate(Bundle savedInstanceState) {
+<b class="nc"><i>35</i>&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc"><i>36</i>&nbsp;        setContentView(R.layout.activity_view_vehicles);</b>
+<b class="nc"><i>37</i>&nbsp;        presenter = new ViewVehiclesPresenter(this, MemoryInitializer.getUserDAO());</b>
+<b class="nc"><i>38</i>&nbsp;        Button add_vehicle = findViewById(R.id.add_vehicle);</b>
+<b class="nc"><i>39</i>&nbsp;        add_vehicle.setOnClickListener(new View.OnClickListener() {</b>
+<i>40</i>&nbsp;            @Override
+<i>41</i>&nbsp;            public void onClick(View v) {
+<b class="nc"><i>42</i>&nbsp;                Intent myIntent = new Intent(ViewVehicles.this, ViewOneVehicle.class);</b>
+<b class="nc"><i>43</i>&nbsp;                myIntent.putExtra(&quot;username&quot;, getUserName());</b>
+<b class="nc"><i>44</i>&nbsp;                startActivityForResult(myIntent,2);</b>
+<i>45</i>&nbsp;            }
+<i>46</i>&nbsp;        });
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;    }
+<i>49</i>&nbsp;
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    public String getUserName()
+<i>52</i>&nbsp;    {
+<b class="nc"><i>53</i>&nbsp;        return this.getIntent().hasExtra(&quot;username&quot;) ? this.getIntent().getExtras().getString(&quot;username&quot;) : null;</b>
+<i>54</i>&nbsp;    }
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;    public void setIntentUsername(String username){
+<b class="nc"><i>57</i>&nbsp;        intentUsername=username;</b>
+<i>58</i>&nbsp;    }
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;    public String getIntentUsername (){
+<b class="nc"><i>61</i>&nbsp;        return intentUsername;</b>
+<i>62</i>&nbsp;    }
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;    /**
+<i>65</i>&nbsp;     * ????????? ?? vehicles ???? user.
+<i>66</i>&nbsp;     * @param DaoVehicles ?? vehicles ??? user.
+<i>67</i>&nbsp;     */
+<i>68</i>&nbsp;    public void showVehicles(ArrayList&lt;Vehicle&gt; DaoVehicles){
+<b class="nc"><i>69</i>&nbsp;        int colorBackground = Color.parseColor(&quot;#337FFF&quot;);</b>
+<b class="nc"><i>70</i>&nbsp;        int colorText = Color.parseColor(&quot;#ffffff&quot;);</b>
+<i>71</i>&nbsp;
+<b class="nc"><i>72</i>&nbsp;        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);</b>
+<b class="nc"><i>73</i>&nbsp;        View v = inflater.inflate(R.layout.activity_view_vehicles, null);</b>
+<b class="nc"><i>74</i>&nbsp;        ArrayList&lt;Button&gt; buttons = new ArrayList&lt;&gt;();</b>
+<b class="nc"><i>75</i>&nbsp;        LinearLayout sv = v.findViewById(R.id.search_layout);</b>
+<b class="nc"><i>76</i>&nbsp;        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);</b>
+<b class="nc"><i>77</i>&nbsp;        layoutParams.setMargins(0, 0, 0, 30);</b>
+<i>78</i>&nbsp;
+<b class="nc"><i>79</i>&nbsp;        int padding = 30;</b>
+<b class="nc"><i>80</i>&nbsp;        for (int i = 0; i &lt; DaoVehicles.size(); i++) {</b>
+<i>81</i>&nbsp;
+<b class="nc"><i>82</i>&nbsp;            LinearLayout newLayout = new LinearLayout(this);</b>
+<b class="nc"><i>83</i>&nbsp;            newLayout.setOrientation(LinearLayout.VERTICAL);</b>
+<b class="nc"><i>84</i>&nbsp;            newLayout.setBackgroundColor(colorBackground);</b>
+<b class="nc"><i>85</i>&nbsp;            Vehicle veh = DaoVehicles.get(i);</b>
+<b class="nc"><i>86</i>&nbsp;            final Button btn = new Button(this);</b>
+<b class="nc"><i>87</i>&nbsp;            btn.setBackgroundColor(colorBackground);</b>
+<b class="nc"><i>88</i>&nbsp;            btn.setText(veh.getBrand() + &quot; &quot;+ veh.getModel());</b>
+<b class="nc"><i>89</i>&nbsp;            btn.setTextSize(12);</b>
+<b class="nc"><i>90</i>&nbsp;            btn.setTextColor(colorText);</b>
+<b class="nc"><i>91</i>&nbsp;            btn.setLayoutParams (new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 100));</b>
+<b class="nc"><i>92</i>&nbsp;            newLayout.addView(btn);</b>
+<b class="nc"><i>93</i>&nbsp;            buttons.add(btn);</b>
+<b class="nc"><i>94</i>&nbsp;            String info = veh.toString();</b>
+<b class="nc"><i>95</i>&nbsp;            TextView data = new TextView(this);</b>
+<b class="nc"><i>96</i>&nbsp;            data.setText(info);</b>
+<b class="nc"><i>97</i>&nbsp;            data.setTextSize(10);</b>
+<b class="nc"><i>98</i>&nbsp;            data.setTextColor(colorText);</b>
+<b class="nc"><i>99</i>&nbsp;            newLayout.addView(data);</b>
+<b class="nc"><i>100</i>&nbsp;            newLayout.setLayoutParams(layoutParams);</b>
+<b class="nc"><i>101</i>&nbsp;            newLayout.setPadding(padding,padding,padding,padding);</b>
+<b class="nc"><i>102</i>&nbsp;            sv.addView(newLayout);</b>
+<b class="nc"><i>103</i>&nbsp;            setVehicleOnClickListener(btn,veh);</b>
+<i>104</i>&nbsp;
+<i>105</i>&nbsp;        }
+<b class="nc"><i>106</i>&nbsp;        setContentView(v);</b>
+<i>107</i>&nbsp;    }
+<i>108</i>&nbsp;
+<i>109</i>&nbsp;    /**
+<i>110</i>&nbsp;     * ????????? ?? vehicle ??? ?? ????????.
+<i>111</i>&nbsp;     * @param b ?? button.
+<i>112</i>&nbsp;     * @param v To vehicle.
+<i>113</i>&nbsp;     */
+<i>114</i>&nbsp;    public void setVehicleOnClickListener(Button b,Vehicle v) {
+<b class="nc"><i>115</i>&nbsp;        b.setOnClickListener(</b>
+<i>116</i>&nbsp;                new View.OnClickListener()
+<b class="nc"><i>117</i>&nbsp;                {</b>
+<i>118</i>&nbsp;                    public void onClick(View view)
+<i>119</i>&nbsp;                    {
+<b class="nc"><i>120</i>&nbsp;                        presenter.viewOneVehicle(v);</b>
+<i>121</i>&nbsp;                    }
+<i>122</i>&nbsp;                });
+<i>123</i>&nbsp;
+<i>124</i>&nbsp;    }
+<i>125</i>&nbsp;
+<i>126</i>&nbsp;    /**
+<i>127</i>&nbsp;     * ????????? ?? ???????? ???? vehicle.
+<i>128</i>&nbsp;     * @param vehicle ?? vehicles ??? ??????????.
+<i>129</i>&nbsp;     */
+<i>130</i>&nbsp;    public void viewOneVehicle(Vehicle vehicle){
+<b class="nc"><i>131</i>&nbsp;        Intent myIntent = new Intent(ViewVehicles.this, ViewOneVehicle.class);</b>
+<b class="nc"><i>132</i>&nbsp;        myIntent.putExtra(&quot;username&quot;, getUserName());</b>
+<b class="nc"><i>133</i>&nbsp;        myIntent.putExtra(&quot;plate&quot;, vehicle.getPlate());</b>
+<b class="nc"><i>134</i>&nbsp;        startActivityForResult(myIntent,1);</b>
+<i>135</i>&nbsp;    }
+<i>136</i>&nbsp;
+<i>137</i>&nbsp;    /**
+<i>138</i>&nbsp;     * ?????????????? ?? activity.
+<i>139</i>&nbsp;     * @param requestCode ? ?????????? ???????
+<i>140</i>&nbsp;     * @param resultCode ? ??????? ??? ?????????????
+<i>141</i>&nbsp;     * @param data ?? intent
+<i>142</i>&nbsp;     */
+<i>143</i>&nbsp;
+<i>144</i>&nbsp;    @Override
+<i>145</i>&nbsp;    public void onActivityResult(int requestCode, int resultCode, Intent data)
+<i>146</i>&nbsp;    {
+<b class="nc"><i>147</i>&nbsp;        super.onActivityResult(requestCode, resultCode, data);</b>
+<b class="nc"><i>148</i>&nbsp;        if((requestCode == 1 || requestCode == 2)&amp;&amp; resultCode == Activity.RESULT_OK)</b>
+<i>149</i>&nbsp;        {
+<b class="nc"><i>150</i>&nbsp;            recreate();</b>
+<b class="nc"><i>151</i>&nbsp;            Toast.makeText(this,data.getStringExtra(&quot;message_to_toast&quot;),Toast.LENGTH_SHORT).show();</b>
+<i>152</i>&nbsp;        }
+<b class="nc"><i>153</i>&nbsp;        else if(requestCode == 100)</b>
+<b class="nc"><i>154</i>&nbsp;            recreate();</b>
+<i>155</i>&nbsp;        }
+<i>156</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:59</div>
+</div>
+</body>
+</html>

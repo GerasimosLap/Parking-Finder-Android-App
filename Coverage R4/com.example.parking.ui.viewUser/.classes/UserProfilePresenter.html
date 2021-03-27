@@ -1,0 +1,165 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: UserProfilePresenter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.parking.ui.viewUser</a> ]
+</div>
+
+<h1>Coverage Summary for Class: UserProfilePresenter (com.example.parking.ui.viewUser)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UserProfilePresenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (44/ 44)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.parking.ui.viewUser;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.parking.dao.UserDAO;
+<i>4</i>&nbsp;import com.example.parking.domain.Address;
+<i>5</i>&nbsp;import com.example.parking.domain.User;
+<i>6</i>&nbsp;import com.example.parking.util.Credits;
+<i>7</i>&nbsp;import com.example.parking.util.ZipCode;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;public class UserProfilePresenter {
+<i>10</i>&nbsp;    private UserProfileView view;
+<i>11</i>&nbsp;    private UserDAO dao;
+<i>12</i>&nbsp;    private User currentUser;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    /**
+<i>15</i>&nbsp;     * ?????????? ??? Presenter.
+<i>16</i>&nbsp;     * @param view ??? instance ??? view
+<i>17</i>&nbsp;     * @param dao ??? instance ??? user
+<i>18</i>&nbsp;     */
+<i>19</i>&nbsp;
+<b class="fc"><i>20</i>&nbsp;    public UserProfilePresenter(UserProfileView view, UserDAO dao) {</b>
+<b class="fc"><i>21</i>&nbsp;        this.view = view;</b>
+<b class="fc"><i>22</i>&nbsp;        this.dao = dao;</b>
+<b class="fc"><i>23</i>&nbsp;        currentUser = dao.find(view.getUsername());</b>
+<b class="fc"><i>24</i>&nbsp;        setFields();</b>
+<i>25</i>&nbsp;    }
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    /**
+<i>28</i>&nbsp;     * ????????? ?? ???????????? ????? ??? User.
+<i>29</i>&nbsp;     */
+<i>30</i>&nbsp;    public void setFields() {
+<b class="fc"><i>31</i>&nbsp;        view.setFirstName(currentUser.getName());</b>
+<b class="fc"><i>32</i>&nbsp;        view.setLastName(currentUser.getSurname());</b>
+<b class="fc"><i>33</i>&nbsp;        view.setEmail(currentUser.getEmail());</b>
+<b class="fc"><i>34</i>&nbsp;        view.setCredits(currentUser.getCredits().getPoints());</b>
+<b class="fc"><i>35</i>&nbsp;        view.setStreet(currentUser.getAddress().getStreet());</b>
+<b class="fc"><i>36</i>&nbsp;        view.setStreetNo(currentUser.getAddress().getStreetNumber());</b>
+<b class="fc"><i>37</i>&nbsp;        view.setZip(String.valueOf(currentUser.getAddress().getZipCode().getZip()));</b>
+<b class="fc"><i>38</i>&nbsp;        view.setPhone(currentUser.getPhone());</b>
+<i>39</i>&nbsp;    }
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;    /**
+<i>42</i>&nbsp;     * ????? update ?? profile ??? User.
+<i>43</i>&nbsp;    */
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;    public void update() {
+<i>46</i>&nbsp;
+<b class="fc"><i>47</i>&nbsp;        String firstname = view.getFirstName(),</b>
+<b class="fc"><i>48</i>&nbsp;                lastname = view.getLastName(),</b>
+<b class="fc"><i>49</i>&nbsp;                email = view.getEmail(),</b>
+<b class="fc"><i>50</i>&nbsp;                street = view.getStreet(),</b>
+<b class="fc"><i>51</i>&nbsp;                streetno = view.getStreetNo(),</b>
+<b class="fc"><i>52</i>&nbsp;                zipcode = view.getZip(),</b>
+<b class="fc"><i>53</i>&nbsp;                phone = view.getPhone();</b>
+<b class="fc"><i>54</i>&nbsp;        int credits = view.getCredits();</b>
+<i>55</i>&nbsp;
+<b class="pc"><i>56</i>&nbsp;        if (firstname.length() &lt; 3 || firstname.length() &gt; 10) {</b>
+<b class="fc"><i>57</i>&nbsp;            view.showErrorMessage(&quot;firstname&quot;, &quot;First name must be more than 3 characters and up to 10.&quot;);</b>
+<b class="pc"><i>58</i>&nbsp;        } else if (lastname.length() &lt; 3 || lastname.length() &gt; 25) {</b>
+<b class="fc"><i>59</i>&nbsp;            view.showErrorMessage(&quot;lastname&quot;, &quot;Last name must be more than 3 characters and up to 25.&quot;);</b>
+<b class="pc"><i>60</i>&nbsp;        } else if (email.length() &lt; 10 || email.length() &gt; 150) {</b>
+<b class="fc"><i>61</i>&nbsp;            view.showErrorMessage(&quot;email&quot;, &quot;Email must be more than than 10 characters and up to 150.&quot;);</b>
+<b class="pc"><i>62</i>&nbsp;        } else if (street.length() &lt; 3 || street.length() &gt; 15) {</b>
+<b class="fc"><i>63</i>&nbsp;            view.showErrorMessage(&quot;street&quot;, &quot;Street must be more than 3 characters and up to 15.&quot;);</b>
+<b class="pc"><i>64</i>&nbsp;        } else if (streetno.length() &lt; 1 || streetno.length() &gt; 3) {</b>
+<b class="fc"><i>65</i>&nbsp;            view.showErrorMessage(&quot;streetno&quot;, &quot;Street No. must be more than 3 characters and up to 3.&quot;);</b>
+<b class="fc"><i>66</i>&nbsp;        } else if (zipcode.length() != 5) {</b>
+<b class="fc"><i>67</i>&nbsp;            view.showErrorMessage(&quot;zipcode&quot;, &quot;ZIP Code must be 5 characters.&quot;);</b>
+<b class="fc"><i>68</i>&nbsp;        } else if (phone.length() != 10) {</b>
+<b class="fc"><i>69</i>&nbsp;            view.showErrorMessage(&quot;phone&quot;, &quot;Phone must be more 10 characters.&quot;);</b>
+<b class="fc"><i>70</i>&nbsp;        } else if (credits &lt; 0) {</b>
+<b class="fc"><i>71</i>&nbsp;            view.showErrorMessage(&quot;credits&quot;, &quot;Credits must not be negative.&quot;);</b>
+<i>72</i>&nbsp;        } else {
+<b class="fc"><i>73</i>&nbsp;            Address currentAddress = currentUser.getAddress();</b>
+<b class="fc"><i>74</i>&nbsp;            currentAddress.setStreet(view.getStreet());</b>
+<b class="fc"><i>75</i>&nbsp;            currentAddress.setStreetNumber(view.getStreetNo());</b>
+<b class="fc"><i>76</i>&nbsp;            currentAddress.setZipCode(new ZipCode(Integer.valueOf(view.getZip())));</b>
+<b class="fc"><i>77</i>&nbsp;            User newUser = new User(view.getFirstName(), view.getLastName(), view.getPhone(), view.getEmail(), currentUser.getUsername(), currentUser.getPassword(), new Credits((view.getCredits())), currentAddress, currentUser.getRating(), currentUser.getVehicles());</b>
+<b class="fc"><i>78</i>&nbsp;            dao.update(newUser);</b>
+<b class="fc"><i>79</i>&nbsp;            view.successfullyFinishActivity(&quot;User: &quot;+view.getIntentUsername()+ &quot; updated!&quot;);</b>
+<i>80</i>&nbsp;        }
+<i>81</i>&nbsp;    }
+<i>82</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:59</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: FindParkingPresenter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.parking.ui.findParking</a> ]
+</div>
+
+<h1>Coverage Summary for Class: FindParkingPresenter (com.example.parking.ui.findParking)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FindParkingPresenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (2/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    72.2%
+  </span>
+  <span class="absValue">
+    (13/ 18)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.parking.ui.findParking;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.os.Build;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import androidx.annotation.RequiresApi;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import com.example.parking.dao.ParkingSpaceDAO;
+<i>8</i>&nbsp;import com.example.parking.domain.Address;
+<i>9</i>&nbsp;import com.example.parking.domain.ParkingRequest;
+<i>10</i>&nbsp;import com.example.parking.domain.ParkingSpace;
+<i>11</i>&nbsp;import com.example.parking.util.ZipCode;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import java.util.ArrayList;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;public class FindParkingPresenter
+<i>16</i>&nbsp;{
+<i>17</i>&nbsp;    FindParkingView view;
+<i>18</i>&nbsp;    ParkingSpaceDAO parkingSpaceDAO;
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    public FindParkingPresenter(FindParkingView view, ParkingSpaceDAO parkingSpaceDAO)
+<b class="fc"><i>22</i>&nbsp;    {</b>
+<b class="fc"><i>23</i>&nbsp;        this.view = view;</b>
+<b class="fc"><i>24</i>&nbsp;        this.parkingSpaceDAO = parkingSpaceDAO;</b>
+<i>25</i>&nbsp;    }
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    /**
+<i>28</i>&nbsp;     * ??????? ??? ????????? ??? ??????? ?????? ??????????
+<i>29</i>&nbsp;     */
+<i>30</i>&nbsp;    @RequiresApi(api = Build.VERSION_CODES.O)
+<i>31</i>&nbsp;    public void find()
+<i>32</i>&nbsp;    {
+<b class="nc"><i>33</i>&nbsp;        if (validateZip()) {</b>
+<b class="nc"><i>34</i>&nbsp;            ArrayList&lt;ParkingSpace&gt; results = new ParkingRequest().FindParking((ArrayList&lt;ParkingSpace&gt;) parkingSpaceDAO.findAllAvailable(), new Address(&quot;&quot;, &quot;&quot;, new ZipCode(Integer.valueOf(view.getZip()))), 30, view.getExpectedArrivalDateTime());</b>
+<b class="nc"><i>35</i>&nbsp;            view.showParkingSpace(results);</b>
+<i>36</i>&nbsp;        }
+<i>37</i>&nbsp;    }
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;    /**
+<i>40</i>&nbsp;     * @return {@code true} ?? ? ????? ?.?. ????? ???????
+<i>41</i>&nbsp;     */
+<i>42</i>&nbsp;    public boolean validateZip()
+<i>43</i>&nbsp;    {
+<b class="fc"><i>44</i>&nbsp;        String zip = view.getZip();</b>
+<b class="pc"><i>45</i>&nbsp;        if (zip.isEmpty()) {</b>
+<b class="nc"><i>46</i>&nbsp;            view.setErrorToZip(&quot;ZipCode cannot be empty&quot;);</b>
+<b class="nc"><i>47</i>&nbsp;            return false;</b>
+<b class="fc"><i>48</i>&nbsp;        } else if (zip.length() != 5) {</b>
+<b class="fc"><i>49</i>&nbsp;            view.setErrorToZip(&quot;ZipCode must be 5 digits&quot;);</b>
+<b class="fc"><i>50</i>&nbsp;            return false;</b>
+<b class="fc"><i>51</i>&nbsp;        } else if (!zip.matches(&quot;\\d+&quot;)) {</b>
+<b class="fc"><i>52</i>&nbsp;            view.setErrorToZip(&quot;ZipCode must be a number&quot;);</b>
+<b class="fc"><i>53</i>&nbsp;            return false;</b>
+<i>54</i>&nbsp;        } else {
+<b class="fc"><i>55</i>&nbsp;            view.setErrorToZip(null);</b>
+<b class="fc"><i>56</i>&nbsp;            return true;</b>
+<i>57</i>&nbsp;        }
+<i>58</i>&nbsp;    }
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;}
+<i>61</i>&nbsp;
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:59</div>
+</div>
+</body>
+</html>

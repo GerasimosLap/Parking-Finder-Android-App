@@ -1,0 +1,320 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: User</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.parking.domain</a> ]
+</div>
+
+<h1>Coverage Summary for Class: User (com.example.parking.domain)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">User</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (32/ 32)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (73/ 73)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.parking.domain;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;
+<i>4</i>&nbsp;import com.example.parking.util.Credits;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import java.util.ArrayList;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;public class User {
+<i>9</i>&nbsp;    private String name;
+<i>10</i>&nbsp;    private String surname;
+<i>11</i>&nbsp;    private String phone;
+<i>12</i>&nbsp;    private String email;
+<i>13</i>&nbsp;    private String username;
+<i>14</i>&nbsp;    private String password;
+<i>15</i>&nbsp;    private Credits credits;
+<i>16</i>&nbsp;    private Address address;
+<i>17</i>&nbsp;    private ArrayList&lt;Rating&gt; rating;
+<i>18</i>&nbsp;    private ArrayList&lt;Vehicle&gt; vehicles;
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    public User(String name, String surname, String phone, String email, String username,
+<i>21</i>&nbsp;                String password, Credits credits, Address address,
+<b class="fc"><i>22</i>&nbsp;                ArrayList&lt;Rating&gt; rating, ArrayList&lt;Vehicle&gt; vehicles) {</b>
+<b class="fc"><i>23</i>&nbsp;        this.name = name;</b>
+<b class="fc"><i>24</i>&nbsp;        this.surname = surname;</b>
+<b class="fc"><i>25</i>&nbsp;        this.phone = phone;</b>
+<b class="fc"><i>26</i>&nbsp;        this.email = email;</b>
+<b class="fc"><i>27</i>&nbsp;        this.username = username;</b>
+<b class="fc"><i>28</i>&nbsp;        this.password = password;</b>
+<b class="fc"><i>29</i>&nbsp;        this.credits = credits;</b>
+<b class="fc"><i>30</i>&nbsp;        this.address = address;</b>
+<b class="fc"><i>31</i>&nbsp;        this.rating = new ArrayList&lt;&gt;(rating);</b>
+<b class="fc"><i>32</i>&nbsp;        this.vehicles = new ArrayList&lt;&gt;(vehicles);</b>
+<i>33</i>&nbsp;    }
+<b class="fc"><i>34</i>&nbsp;    public User(){</b>
+<b class="fc"><i>35</i>&nbsp;        this.name = &quot;&quot;;</b>
+<b class="fc"><i>36</i>&nbsp;        this.surname = &quot;&quot;;</b>
+<b class="fc"><i>37</i>&nbsp;        this.phone = &quot;&quot;;</b>
+<b class="fc"><i>38</i>&nbsp;        this.email = &quot;&quot;;</b>
+<b class="fc"><i>39</i>&nbsp;        this.username = &quot;&quot;;</b>
+<b class="fc"><i>40</i>&nbsp;        this.password = &quot;&quot;;</b>
+<b class="fc"><i>41</i>&nbsp;        this.credits = new Credits(10 );</b>
+<b class="fc"><i>42</i>&nbsp;        this.address = new Address();</b>
+<b class="fc"><i>43</i>&nbsp;        this.rating = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>44</i>&nbsp;        this.vehicles = new ArrayList&lt;&gt;();</b>
+<i>45</i>&nbsp;    }
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    public String getName() {
+<b class="fc"><i>50</i>&nbsp;        return name;</b>
+<i>51</i>&nbsp;    }
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;    public String getSurname() {
+<b class="fc"><i>54</i>&nbsp;        return surname;</b>
+<i>55</i>&nbsp;    }
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;    public String getPhone() {
+<b class="fc"><i>58</i>&nbsp;        return phone;</b>
+<i>59</i>&nbsp;    }
+<i>60</i>&nbsp;
+<i>61</i>&nbsp;    public String getEmail() {
+<b class="fc"><i>62</i>&nbsp;        return email;</b>
+<i>63</i>&nbsp;    }
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;    public String getUsername() {
+<b class="fc"><i>66</i>&nbsp;        return username;</b>
+<i>67</i>&nbsp;    }
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;    public String getPassword() {
+<b class="fc"><i>70</i>&nbsp;        return password;</b>
+<i>71</i>&nbsp;    }
+<i>72</i>&nbsp;
+<i>73</i>&nbsp;    public Credits getCredits() {
+<b class="fc"><i>74</i>&nbsp;        return credits;</b>
+<i>75</i>&nbsp;    }
+<i>76</i>&nbsp;
+<i>77</i>&nbsp;    public Address getAddress() {
+<b class="fc"><i>78</i>&nbsp;        return address;</b>
+<i>79</i>&nbsp;    }
+<i>80</i>&nbsp;
+<i>81</i>&nbsp;    public void setName(String name) {
+<b class="fc"><i>82</i>&nbsp;        this.name = name;</b>
+<i>83</i>&nbsp;    }
+<i>84</i>&nbsp;
+<i>85</i>&nbsp;    public void setSurname(String surname) {
+<b class="fc"><i>86</i>&nbsp;        this.surname = surname;</b>
+<i>87</i>&nbsp;    }
+<i>88</i>&nbsp;
+<i>89</i>&nbsp;    public void setPhone(String phone) {
+<b class="fc"><i>90</i>&nbsp;        this.phone = phone;</b>
+<i>91</i>&nbsp;    }
+<i>92</i>&nbsp;
+<i>93</i>&nbsp;    public void setEmail(String email) {
+<b class="fc"><i>94</i>&nbsp;        this.email = email;</b>
+<i>95</i>&nbsp;    }
+<i>96</i>&nbsp;
+<i>97</i>&nbsp;    public void setUsername(String username) {
+<b class="fc"><i>98</i>&nbsp;        this.username = username;</b>
+<i>99</i>&nbsp;    }
+<i>100</i>&nbsp;
+<i>101</i>&nbsp;    public void setPassword(String password) {
+<b class="fc"><i>102</i>&nbsp;        this.password = password;</b>
+<i>103</i>&nbsp;    }
+<i>104</i>&nbsp;
+<i>105</i>&nbsp;    public void setCredits(Credits credits) {
+<b class="fc"><i>106</i>&nbsp;        this.credits = credits;</b>
+<i>107</i>&nbsp;    }
+<i>108</i>&nbsp;
+<i>109</i>&nbsp;    public void setAddress(Address address) {
+<b class="fc"><i>110</i>&nbsp;        this.address = address;</b>
+<i>111</i>&nbsp;    }
+<i>112</i>&nbsp;
+<i>113</i>&nbsp;    public void setRating(ArrayList&lt;Rating&gt; rating) {
+<b class="fc"><i>114</i>&nbsp;        this.rating = rating;</b>
+<i>115</i>&nbsp;    }
+<i>116</i>&nbsp;
+<i>117</i>&nbsp;    public void setVehicles(ArrayList&lt;Vehicle&gt; vehicles) {
+<b class="fc"><i>118</i>&nbsp;        this.vehicles = vehicles;</b>
+<i>119</i>&nbsp;    }
+<i>120</i>&nbsp;
+<i>121</i>&nbsp;    public ArrayList&lt;Rating&gt; getRating() {
+<b class="fc"><i>122</i>&nbsp;        return rating;</b>
+<i>123</i>&nbsp;    }
+<i>124</i>&nbsp;
+<i>125</i>&nbsp;    public ArrayList&lt;Vehicle&gt; getVehicles() {
+<b class="fc"><i>126</i>&nbsp;        return vehicles;</b>
+<i>127</i>&nbsp;    }
+<i>128</i>&nbsp;
+<i>129</i>&nbsp;    public void addCredits(Credits credits){
+<b class="fc"><i>130</i>&nbsp;        getCredits().addCredits(credits.getPoints());</b>
+<i>131</i>&nbsp;    }
+<i>132</i>&nbsp;
+<i>133</i>&nbsp;    public void removeCredits(Credits credits){
+<b class="fc"><i>134</i>&nbsp;        getCredits().removeCredits(credits.getPoints());</b>
+<i>135</i>&nbsp;    }
+<i>136</i>&nbsp;
+<i>137</i>&nbsp;    /**
+<i>138</i>&nbsp;     *
+<i>139</i>&nbsp;     * @param plate ?? plate ???? vehicle ??? ??????.
+<i>140</i>&nbsp;     * @return ?????????? ?? vehicle ?? ?? ????, ? ??? ??? vehicle.
+<i>141</i>&nbsp;     */
+<i>142</i>&nbsp;    public Vehicle getVehicle(String plate) {
+<b class="fc"><i>143</i>&nbsp;        if (getVehicles().size() &gt; 0) {</b>
+<b class="fc"><i>144</i>&nbsp;            for (Vehicle vehicle : getVehicles()) {</b>
+<b class="fc"><i>145</i>&nbsp;                if (vehicle.getPlate().equals(plate)) {</b>
+<b class="fc"><i>146</i>&nbsp;                    return vehicle;</b>
+<i>147</i>&nbsp;                }
+<b class="fc"><i>148</i>&nbsp;            }</b>
+<b class="fc"><i>149</i>&nbsp;            return new Vehicle();</b>
+<i>150</i>&nbsp;        }else{
+<b class="fc"><i>151</i>&nbsp;            return new Vehicle();</b>
+<i>152</i>&nbsp;        }
+<i>153</i>&nbsp;    }
+<i>154</i>&nbsp;
+<i>155</i>&nbsp;    /**
+<i>156</i>&nbsp;     * ?? ?? penalty ??????????? ??? ?? credits ??? ???? ???? ??? ???????????? ?? credits, ?????? ??????????.
+<i>157</i>&nbsp;     * @param penalty ????? ?? ???????
+<i>158</i>&nbsp;     */
+<i>159</i>&nbsp;    public void setPenalty(int penalty){
+<b class="fc"><i>160</i>&nbsp;        if(penalty&gt;getCredits().getPoints()){</b>
+<b class="fc"><i>161</i>&nbsp;            credits.setPoints(0);</b>
+<i>162</i>&nbsp;        }else{
+<b class="fc"><i>163</i>&nbsp;            credits.setPoints(getCredits().getPoints()-penalty);</b>
+<i>164</i>&nbsp;        }
+<i>165</i>&nbsp;    }
+<i>166</i>&nbsp;
+<i>167</i>&nbsp;    public void addRating(Rating rating){
+<b class="fc"><i>168</i>&nbsp;        this.rating.add(rating);</b>
+<i>169</i>&nbsp;    }
+<i>170</i>&nbsp;
+<i>171</i>&nbsp;    public void removeRating(Rating rating){
+<b class="fc"><i>172</i>&nbsp;        this.rating.remove(rating);</b>
+<i>173</i>&nbsp;    }
+<i>174</i>&nbsp;
+<i>175</i>&nbsp;    /**
+<i>176</i>&nbsp;     ????????? ??? ????? ?? ??? ??????? ??? ???? ??????.
+<i>177</i>&nbsp;     @param vehicle ?? ????? ???? ????????.
+<i>178</i>&nbsp;     */
+<i>179</i>&nbsp;
+<i>180</i>&nbsp;     public void addVehicle(Vehicle vehicle){
+<b class="fc"><i>181</i>&nbsp;        if(vehicles.size()&gt;0) {</b>
+<b class="fc"><i>182</i>&nbsp;            for (Vehicle v : vehicles) {</b>
+<b class="fc"><i>183</i>&nbsp;                if (v.getPlate().equals(vehicle.getPlate())) {</b>
+<i>184</i>&nbsp;                    return;
+<i>185</i>&nbsp;                }
+<b class="fc"><i>186</i>&nbsp;            }</b>
+<b class="fc"><i>187</i>&nbsp;            this.vehicles.add(vehicle);</b>
+<i>188</i>&nbsp;        }else{
+<b class="fc"><i>189</i>&nbsp;            this.vehicles.add(vehicle);</b>
+<i>190</i>&nbsp;        }
+<i>191</i>&nbsp;
+<i>192</i>&nbsp;    }
+<i>193</i>&nbsp;    /**???????? ??? ????? (???? ?? ? ??????? ???? 2 ??? ????.
+<i>194</i>&nbsp;     *
+<i>195</i>&nbsp;     * @param vehicle ?? ?????
+<i>196</i>&nbsp;     */
+<i>197</i>&nbsp;    public void removeVehicle(Vehicle vehicle){
+<b class="fc"><i>198</i>&nbsp;        if(vehicles.size()&gt;0){</b>
+<b class="fc"><i>199</i>&nbsp;            for (Vehicle v : vehicles) {</b>
+<b class="fc"><i>200</i>&nbsp;                if(vehicle.getPlate().equals(v.getPlate())){</b>
+<b class="fc"><i>201</i>&nbsp;                    this.vehicles.remove(v);</b>
+<i>202</i>&nbsp;                    return;
+<i>203</i>&nbsp;                }
+<b class="fc"><i>204</i>&nbsp;            }</b>
+<i>205</i>&nbsp;        }
+<i>206</i>&nbsp;    }
+<i>207</i>&nbsp;
+<i>208</i>&nbsp;    /**?????????? ??? ???? ??? ????????????
+<i>209</i>&nbsp;     *
+<i>210</i>&nbsp;     * @return ??? ?.?. ????????????.
+<i>211</i>&nbsp;     */
+<i>212</i>&nbsp;    public double calculateRating(){
+<b class="fc"><i>213</i>&nbsp;        int currentRating = 0;</b>
+<b class="fc"><i>214</i>&nbsp;        for(Rating rate: rating){</b>
+<b class="fc"><i>215</i>&nbsp;            currentRating+=rate.getRatingScore();</b>
+<b class="fc"><i>216</i>&nbsp;        }</b>
+<b class="fc"><i>217</i>&nbsp;        return currentRating/rating.size();</b>
+<i>218</i>&nbsp;    }
+<i>219</i>&nbsp;
+<i>220</i>&nbsp;
+<i>221</i>&nbsp;
+<i>222</i>&nbsp;
+<i>223</i>&nbsp;    @Override
+<i>224</i>&nbsp;    public String toString() {
+<b class="fc"><i>225</i>&nbsp;        return &quot;User{&quot; +</b>
+<i>226</i>&nbsp;                &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; +
+<i>227</i>&nbsp;                &quot;, surname=&#39;&quot; + surname + &#39;\&#39;&#39; +
+<i>228</i>&nbsp;                &quot;, phone=&#39;&quot; + phone + &#39;\&#39;&#39; +
+<i>229</i>&nbsp;                &quot;, email=&#39;&quot; + email + &#39;\&#39;&#39; +
+<i>230</i>&nbsp;                &quot;, username=&#39;&quot; + username + &#39;\&#39;&#39; +
+<i>231</i>&nbsp;                &quot;, password=&#39;&quot; + password + &#39;\&#39;&#39; +
+<i>232</i>&nbsp;                &quot;, credits=&quot; + credits +
+<i>233</i>&nbsp;                &quot;, address=&quot; + address +
+<i>234</i>&nbsp;                &quot;, rating=&quot; + rating +
+<i>235</i>&nbsp;                &#39;}&#39;;
+<i>236</i>&nbsp;    }
+<i>237</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:59</div>
+</div>
+</body>
+</html>

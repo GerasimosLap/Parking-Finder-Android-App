@@ -1,0 +1,185 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: TimeRange</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.parking.util</a> ]
+</div>
+
+<h1>Coverage Summary for Class: TimeRange (com.example.parking.util)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">TimeRange</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (14/ 14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (24/ 24)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.parking.util;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.os.Build;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import androidx.annotation.RequiresApi;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import java.time.Duration;
+<i>8</i>&nbsp;import java.time.LocalDateTime;
+<i>9</i>&nbsp;import java.time.format.DateTimeFormatter;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;@RequiresApi(api = Build.VERSION_CODES.O)
+<i>13</i>&nbsp;public class TimeRange {
+<i>14</i>&nbsp;    private LocalDateTime from;
+<i>15</i>&nbsp;    private LocalDateTime to;
+<i>16</i>&nbsp;
+<b class="fc"><i>17</i>&nbsp;    static DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&quot;dd/MMM/uuuu HH:mm&quot;);</b>
+<b class="fc"><i>18</i>&nbsp;    public TimeRange(LocalDateTime from, LocalDateTime to) {</b>
+<b class="fc"><i>19</i>&nbsp;        this.from = from;</b>
+<b class="fc"><i>20</i>&nbsp;        this.to = to;</b>
+<i>21</i>&nbsp;    }
+<i>22</i>&nbsp;
+<b class="fc"><i>23</i>&nbsp;    public TimeRange(LocalDateTime from, long extraMinutesTillExchange) {</b>
+<b class="fc"><i>24</i>&nbsp;        this.from = from;</b>
+<b class="fc"><i>25</i>&nbsp;        this.to = addMinutes(from, extraMinutesTillExchange);</b>
+<i>26</i>&nbsp;    }
+<b class="fc"><i>27</i>&nbsp;    public TimeRange(long extraMinutesTillExchange) {</b>
+<b class="fc"><i>28</i>&nbsp;        this.from = LocalDateTime.now();</b>
+<b class="fc"><i>29</i>&nbsp;        this.to = addMinutes(from, extraMinutesTillExchange);</b>
+<i>30</i>&nbsp;    }
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    public LocalDateTime getFrom() {
+<b class="fc"><i>33</i>&nbsp;        return from;</b>
+<i>34</i>&nbsp;    }
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    public void setFrom(LocalDateTime from) {
+<b class="fc"><i>37</i>&nbsp;        this.from = from;</b>
+<i>38</i>&nbsp;    }
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;    public LocalDateTime getTo() {
+<b class="fc"><i>41</i>&nbsp;        return to;</b>
+<i>42</i>&nbsp;    }
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    public void setTo(LocalDateTime to) {
+<b class="fc"><i>45</i>&nbsp;        this.to = to;</b>
+<i>46</i>&nbsp;    }
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;    /**
+<i>49</i>&nbsp;     * @return ?? ????? ?????? ??? from ??? ??? to ??? object
+<i>50</i>&nbsp;     */
+<i>51</i>&nbsp;    public long getDifference(){
+<b class="fc"><i>52</i>&nbsp;        return Duration.between(from, to).toMinutes();</b>
+<i>53</i>&nbsp;    }
+<i>54</i>&nbsp;
+<i>55</i>&nbsp;    /**
+<i>56</i>&nbsp;     * @param ld1 ??? LocalDateTime object ??? ?????????? ?? from
+<i>57</i>&nbsp;     * @param ld2 ??? LocalDateTime object ??? ?????????? ?? to
+<i>58</i>&nbsp;     * @return ?? ????? ?????? ??? from ??? ??? to ??? ??? ???????
+<i>59</i>&nbsp;     */
+<i>60</i>&nbsp;    public static long getDifference(LocalDateTime ld1, LocalDateTime ld2){
+<b class="fc"><i>61</i>&nbsp;        return Duration.between(ld1, ld2).toMinutes();</b>
+<i>62</i>&nbsp;    }
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;    /**
+<i>65</i>&nbsp;     * @return {@code true} ?? ?? ??????? ???? ??? TimeRange object ??? ?????? ????? ????? ????? ??? object
+<i>66</i>&nbsp;     */
+<i>67</i>&nbsp;    public boolean containsRange(final TimeRange other)
+<i>68</i>&nbsp;    {
+<b class="fc"><i>69</i>&nbsp;        return getDifference(this.from, other.from) &gt;= 0 &amp;&amp;</b>
+<b class="fc"><i>70</i>&nbsp;                getDifference(other.to, this.to) &gt;= 0;</b>
+<i>71</i>&nbsp;    }
+<i>72</i>&nbsp;
+<i>73</i>&nbsp;    /**
+<i>74</i>&nbsp;     * @param ld ??? ??????? ?????? ?? LocalDateTime
+<i>75</i>&nbsp;     * @return {@code true} ?? ? ?????? ??????? ?????? ????? ????? ??? ???????? ????? ??? ????????????
+<i>76</i>&nbsp;     */
+<i>77</i>&nbsp;    public boolean containsDateTime(LocalDateTime ld)
+<i>78</i>&nbsp;    {
+<b class="fc"><i>79</i>&nbsp;        return getDifference(this.from, ld) &gt;= 0 &amp;&amp;</b>
+<b class="fc"><i>80</i>&nbsp;                getDifference(ld, this.to) &gt;= 0;</b>
+<i>81</i>&nbsp;    }
+<i>82</i>&nbsp;
+<i>83</i>&nbsp;    /**
+<i>84</i>&nbsp;     * @param date ? ?????? ??????? ??????Provided time instant
+<i>85</i>&nbsp;     * @param minutes ?? ????? ??? ????? ?? ??????????
+<i>86</i>&nbsp;     * @return ??? ????????? ??????? ?????? ? ????? ????? ??? ????? ??????????? ??? ???? ???? ?????
+<i>87</i>&nbsp;     */
+<i>88</i>&nbsp;    public LocalDateTime addMinutes(LocalDateTime date, long minutes){
+<b class="fc"><i>89</i>&nbsp;        return date.plusMinutes(minutes);</b>
+<i>90</i>&nbsp;    }
+<i>91</i>&nbsp;
+<i>92</i>&nbsp;
+<i>93</i>&nbsp;    @Override
+<i>94</i>&nbsp;    public String toString() {
+<b class="fc"><i>95</i>&nbsp;        String fromstr = from.format(formatter);</b>
+<b class="fc"><i>96</i>&nbsp;        String tostr = to.format(formatter);</b>
+<b class="fc"><i>97</i>&nbsp;        return &quot;TimeRange{&quot; +</b>
+<i>98</i>&nbsp;                &quot;from=&quot; + fromstr +
+<i>99</i>&nbsp;                &quot;, to=&quot; + tostr +
+<i>100</i>&nbsp;                &#39;}&#39;;
+<i>101</i>&nbsp;    }
+<i>102</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:59</div>
+</div>
+</body>
+</html>

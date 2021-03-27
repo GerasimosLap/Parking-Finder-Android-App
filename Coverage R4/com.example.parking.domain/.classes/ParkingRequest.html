@@ -1,0 +1,238 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ParkingRequest</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.parking.domain</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ParkingRequest (com.example.parking.domain)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ParkingRequest</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (14/ 14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    95.6%
+  </span>
+  <span class="absValue">
+    (43/ 45)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.parking.domain;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.os.Build;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import androidx.annotation.RequiresApi;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import com.example.parking.util.Pin;
+<i>8</i>&nbsp;import com.example.parking.util.TimeRange;
+<i>9</i>&nbsp;import com.example.parking.util.ZipCode;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;import java.time.LocalDateTime;
+<i>12</i>&nbsp;import java.util.ArrayList;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;public class ParkingRequest{
+<i>16</i>&nbsp;    private TimeRange date;//date einai h wra pou ypologizei o requestingUser na ftasei sto parking
+<i>17</i>&nbsp;    private Pin pin;
+<i>18</i>&nbsp;    private User requestingUser;
+<i>19</i>&nbsp;    private ParkingSpace parkingSpace;
+<i>20</i>&nbsp;
+<b class="fc"><i>21</i>&nbsp;    public ParkingRequest(TimeRange date, Pin pin, User requestingUser,ParkingSpace parkingSpace) {</b>
+<b class="fc"><i>22</i>&nbsp;        this.date = date;</b>
+<b class="fc"><i>23</i>&nbsp;        this.pin = pin;</b>
+<b class="fc"><i>24</i>&nbsp;        this.requestingUser = requestingUser;</b>
+<b class="fc"><i>25</i>&nbsp;        this.parkingSpace=parkingSpace;</b>
+<i>26</i>&nbsp;    }
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    @RequiresApi(api = Build.VERSION_CODES.O)
+<b class="fc"><i>29</i>&nbsp;    public ParkingRequest() {</b>
+<b class="fc"><i>30</i>&nbsp;        this.date = new TimeRange(0);</b>
+<b class="fc"><i>31</i>&nbsp;        this.pin = new Pin();</b>
+<b class="fc"><i>32</i>&nbsp;        this.requestingUser = new User();</b>
+<b class="fc"><i>33</i>&nbsp;        this.parkingSpace = new ParkingSpace();</b>
+<i>34</i>&nbsp;    }
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;    public TimeRange getDate() {
+<b class="fc"><i>38</i>&nbsp;        return date;</b>
+<i>39</i>&nbsp;    }
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;    public void setDate(TimeRange date) {
+<b class="fc"><i>42</i>&nbsp;        this.date = date;</b>
+<i>43</i>&nbsp;    }
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;    public Pin getPin() {
+<b class="fc"><i>46</i>&nbsp;        return pin;</b>
+<i>47</i>&nbsp;    }
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    public void setPin(Pin pin) {
+<b class="fc"><i>50</i>&nbsp;        this.pin = pin;</b>
+<i>51</i>&nbsp;    }
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;    public User getRequestingUser() {
+<b class="fc"><i>54</i>&nbsp;        return requestingUser;</b>
+<i>55</i>&nbsp;    }
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;    public void setRequestingUser(User requestingUser) {
+<b class="fc"><i>58</i>&nbsp;        this.requestingUser = requestingUser;</b>
+<i>59</i>&nbsp;    }
+<i>60</i>&nbsp;
+<i>61</i>&nbsp;    public ParkingSpace getParkingSpace() {
+<b class="fc"><i>62</i>&nbsp;        return parkingSpace;</b>
+<i>63</i>&nbsp;    }
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;    public void setParkingSpace(ParkingSpace parkingSpace) {
+<b class="fc"><i>66</i>&nbsp;        this.parkingSpace = parkingSpace;</b>
+<i>67</i>&nbsp;    }
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;    /**
+<i>70</i>&nbsp;     * ??????? parking ??????? ?? ??? ?.?. ??? ??? ???. ?? ??? ??????? ????? ?????? ???? ????????? ?.?.
+<i>71</i>&nbsp;     * @param parkingSpaces ????? ?? ??? ?? ????????? {@code ParkingSpace} ???????????
+<i>72</i>&nbsp;     * @param difference ??????? &quot;????????&quot; ??? ??????, ?????????????? ?? ??????? ??? Zip Codes
+<i>73</i>&nbsp;     * @return ? ????????? ??? ????????????
+<i>74</i>&nbsp;     */
+<i>75</i>&nbsp;
+<i>76</i>&nbsp;    @RequiresApi(api = Build.VERSION_CODES.O)
+<i>77</i>&nbsp;    public ArrayList&lt;ParkingSpace&gt; FindParking(ArrayList&lt;ParkingSpace&gt; parkingSpaces, Address address,int difference, LocalDateTime expectedArrival){
+<b class="fc"><i>78</i>&nbsp;        ArrayList&lt;ParkingSpace&gt; list = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>79</i>&nbsp;        ZipCode zip = address.getZipCode();</b>
+<b class="fc"><i>80</i>&nbsp;        for (ParkingSpace parking : parkingSpaces) {</b>
+<b class="fc"><i>81</i>&nbsp;                ZipCode currentZip = parking.getAddress().getZipCode();</b>
+<b class="fc"><i>82</i>&nbsp;            if (Math.abs(zip.getZip() - currentZip.getZip()) &lt;= difference) {</b>
+<b class="pc"><i>83</i>&nbsp;                if(parking.getTimeRange().containsDateTime(expectedArrival)){</b>
+<b class="fc"><i>84</i>&nbsp;                   list.add(parking);</b>
+<i>85</i>&nbsp;                }
+<i>86</i>&nbsp;            }
+<b class="fc"><i>87</i>&nbsp;        }</b>
+<b class="fc"><i>88</i>&nbsp;        return list;</b>
+<i>89</i>&nbsp;    }
+<i>90</i>&nbsp;
+<i>91</i>&nbsp;
+<i>92</i>&nbsp;
+<i>93</i>&nbsp;    /**
+<i>94</i>&nbsp;     * ????? ???????? ??? ??? ???????????? ??? ??????????? ?????????? ?????
+<i>95</i>&nbsp;     * ????? ??? ??? ???????? ??????? ??? ??? ????????????? ????
+<i>96</i>&nbsp;     * ??????????? ??????.
+<i>97</i>&nbsp;     * @param pin ?? pin
+<i>98</i>&nbsp;     * @return ?????????? ?? resultCode ??????? ??? ??????? ??? ??????????
+<i>99</i>&nbsp;     * resultCode= {    1:  ?? pin ????? ????? ??? ???? ???????? ? ?????????, ta credits ????????????? ?????? ??? ?????????????????
+<i>100</i>&nbsp;     *                  2:  ?? pin ????? ????? ??? ? ????????? ???????
+<i>101</i>&nbsp;     *              }
+<i>102</i>&nbsp;     */
+<i>103</i>&nbsp;
+<i>104</i>&nbsp;    @RequiresApi(api = Build.VERSION_CODES.O)
+<i>105</i>&nbsp;    public int validateParking(Pin pin){
+<i>106</i>&nbsp;
+<b class="fc"><i>107</i>&nbsp;        if(pin.getPin()==getPin().getPin()){//get pin of class pin from parkingRequest pin</b>
+<b class="fc"><i>108</i>&nbsp;            getParkingSpace().makeParkingUnavailable();</b>
+<i>109</i>&nbsp;
+<b class="fc"><i>110</i>&nbsp;            calculatePenalty();</b>
+<i>111</i>&nbsp;
+<b class="fc"><i>112</i>&nbsp;            getRequestingUser().getCredits().removeCredits(getParkingSpace().getPrice().getPoints());</b>
+<i>113</i>&nbsp;
+<i>114</i>&nbsp;
+<b class="fc"><i>115</i>&nbsp;            getParkingSpace().getParkedUser().getCredits().addCredits(getParkingSpace().getPrice().getPoints());</b>
+<i>116</i>&nbsp;
+<b class="fc"><i>117</i>&nbsp;            return 1;</b>
+<i>118</i>&nbsp;        }
+<b class="fc"><i>119</i>&nbsp;        return 2;</b>
+<i>120</i>&nbsp;    }
+<i>121</i>&nbsp;
+<i>122</i>&nbsp;    /**
+<i>123</i>&nbsp;     * ????? ???????? ??? ??? ???????????? ??? ??????????? ???????? ??????
+<i>124</i>&nbsp;     * ????? ??? ??? ???????? ??????? ??? ??? ????????????? ????
+<i>125</i>&nbsp;     * ??????????? ??????.
+<i>126</i>&nbsp;     * resultCode= {    1:  ?? pin ????? ????? ??? ???? ???????? ? ?????????, ta credits ????????????? ?????? ??? ?????????????????
+<i>127</i>&nbsp;     *                  2:  ?? pin ????? ????? ??? ? ????????? ???????
+<i>128</i>&nbsp;     *              }
+<i>129</i>&nbsp;     */
+<i>130</i>&nbsp;
+<i>131</i>&nbsp;    @RequiresApi(api = Build.VERSION_CODES.O)
+<i>132</i>&nbsp;    void calculatePenalty(){
+<b class="fc"><i>133</i>&nbsp;        TimeRange currentTime = new TimeRange(0);</b>
+<b class="fc"><i>134</i>&nbsp;        currentTime.setFrom(date.getTo());</b>
+<b class="fc"><i>135</i>&nbsp;        System.out.println(currentTime.toString());</b>
+<b class="fc"><i>136</i>&nbsp;        long minutesDif = currentTime.getDifference();</b>
+<b class="fc"><i>137</i>&nbsp;        int mod = (int)minutesDif%3;</b>
+<b class="fc"><i>138</i>&nbsp;        int penalty = mod;</b>
+<b class="fc"><i>139</i>&nbsp;        System.out.println(minutesDif);</b>
+<b class="pc"><i>140</i>&nbsp;        if(minutesDif&gt;=30){</b>
+<b class="nc"><i>141</i>&nbsp;            penalty+=2;</b>
+<b class="nc"><i>142</i>&nbsp;            requestingUser.setPenalty(penalty);</b>
+<i>143</i>&nbsp;        }
+<i>144</i>&nbsp;    }
+<i>145</i>&nbsp;
+<i>146</i>&nbsp;    @Override
+<i>147</i>&nbsp;    public String toString() {
+<b class="fc"><i>148</i>&nbsp;        return &quot;ParkingRequest{&quot; +</b>
+<i>149</i>&nbsp;                &quot;date=&quot; + date +
+<i>150</i>&nbsp;                &quot;, pin=&quot; + pin +
+<i>151</i>&nbsp;                &quot;, requestingUser=&quot; + requestingUser +
+<i>152</i>&nbsp;                &quot;, parkingSpace=&quot; + parkingSpace +
+<i>153</i>&nbsp;                &#39;}&#39;;
+<i>154</i>&nbsp;    }
+<i>155</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:59</div>
+</div>
+</body>
+</html>

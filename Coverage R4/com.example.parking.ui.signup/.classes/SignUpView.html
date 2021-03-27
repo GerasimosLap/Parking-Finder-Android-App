@@ -1,0 +1,81 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: SignUpView</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.parking.ui.signup</a> ]
+</div>
+
+<h1>Coverage Summary for Class: SignUpView (com.example.parking.ui.signup)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">SignUpView</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.parking.ui.signup;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;public interface SignUpView {
+<i>4</i>&nbsp;    String getName();
+<i>5</i>&nbsp;    String getSurname();
+<i>6</i>&nbsp;    String getPhone();
+<i>7</i>&nbsp;    String getEmail();
+<i>8</i>&nbsp;    String getUsername();
+<i>9</i>&nbsp;    String getPassword();
+<i>10</i>&nbsp;    String getStrN();
+<i>11</i>&nbsp;    String getZipCode();
+<i>12</i>&nbsp;    String getStreet();
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    /**
+<i>15</i>&nbsp;     * ????????? ??? Toast.
+<i>16</i>&nbsp;     * @param text ?? ??????????? ??? ?? ??????????
+<i>17</i>&nbsp;     */
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;    void makeToast(String text);
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    /**
+<i>22</i>&nbsp;     * ????????? ??? error ????? ??? ???????????? ?????.
+<i>23</i>&nbsp;     * @param EditText ?? ????? ??? ???????? ??? ????? ?? ?????????? ?? ??????
+<i>24</i>&nbsp;     * @param error ?? ??????????? ??? ????????? ??? ?? ??????????
+<i>25</i>&nbsp;     */
+<i>26</i>&nbsp;    void setError(String EditText,String error);
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    /**
+<i>29</i>&nbsp;     * ?? ?????? ?o? ??????????? ???? ?????????
+<i>30</i>&nbsp;     * ???????? ??? activity.
+<i>31</i>&nbsp;     * @param message ?? ?????? ??? ?? ?????????
+<i>32</i>&nbsp;     */
+<i>33</i>&nbsp;    void successfullyFinishActivity(String message);
+<i>34</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:59</div>
+</div>
+</body>
+</html>

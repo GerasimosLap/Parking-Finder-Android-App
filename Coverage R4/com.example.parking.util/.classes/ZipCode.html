@@ -1,0 +1,136 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ZipCode</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.parking.util</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ZipCode (com.example.parking.util)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ZipCode</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (13/ 13)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.parking.util;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.os.Build;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import androidx.annotation.RequiresApi;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import java.util.Objects;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;public class ZipCode {
+<i>10</i>&nbsp;    private int zip;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;
+<b class="fc"><i>13</i>&nbsp;    public ZipCode(int zip) {</b>
+<b class="fc"><i>14</i>&nbsp;        this.zip = zip;</b>
+<i>15</i>&nbsp;    }
+<i>16</i>&nbsp;
+<b class="fc"><i>17</i>&nbsp;    public ZipCode() {</b>
+<b class="fc"><i>18</i>&nbsp;        this.zip = 0;</b>
+<i>19</i>&nbsp;    }
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    public int getZip() {
+<b class="fc"><i>22</i>&nbsp;        return zip;</b>
+<i>23</i>&nbsp;    }
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    /**
+<i>26</i>&nbsp;     * ??????? ?? ?? zip ????? 5?????.
+<i>27</i>&nbsp;     * @param zip Zip ??? ??????? ?? ????? set
+<i>28</i>&nbsp;     */
+<i>29</i>&nbsp;    public void setZip(int zip) {
+<b class="fc"><i>30</i>&nbsp;        String stringZip = String.valueOf(zip);</b>
+<b class="fc"><i>31</i>&nbsp;        if(stringZip.length()==5) {</b>
+<b class="fc"><i>32</i>&nbsp;            this.zip = zip;</b>
+<i>33</i>&nbsp;        }
+<i>34</i>&nbsp;    }
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    @Override
+<i>37</i>&nbsp;    public String toString() {
+<b class="fc"><i>38</i>&nbsp;        return &quot;ZipCode{&quot; +</b>
+<i>39</i>&nbsp;                &quot;zip=&quot; + zip +
+<i>40</i>&nbsp;                &#39;}&#39;;
+<i>41</i>&nbsp;    }
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+<i>44</i>&nbsp;    @Override
+<i>45</i>&nbsp;    public boolean equals(Object o) {
+<b class="fc"><i>46</i>&nbsp;        if (this == o) return true;</b>
+<b class="pc"><i>47</i>&nbsp;        if (o == null || getClass() != o.getClass()) return false;</b>
+<b class="fc"><i>48</i>&nbsp;        ZipCode zipCode = (ZipCode) o;</b>
+<b class="fc"><i>49</i>&nbsp;        return Objects.equals(zip, zipCode.zip);</b>
+<i>50</i>&nbsp;    }
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:59</div>
+</div>
+</body>
+</html>

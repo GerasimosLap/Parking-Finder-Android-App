@@ -1,0 +1,71 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ViewVehiclesView</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.parking.ui.viewVehicles</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ViewVehiclesView (com.example.parking.ui.viewVehicles)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ViewVehiclesView</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.parking.ui.viewVehicles;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.parking.domain.Vehicle;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import java.util.ArrayList;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;public interface ViewVehiclesView {
+<i>8</i>&nbsp;    String getUserName();
+<i>9</i>&nbsp;    void setIntentUsername(String username);
+<i>10</i>&nbsp;    String getIntentUsername ();
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;    /**
+<i>14</i>&nbsp;     * ????????? ?? ???????? ???? vehicle.
+<i>15</i>&nbsp;     * @param vehicle ?? vehicles ??? ??????????.
+<i>16</i>&nbsp;     */
+<i>17</i>&nbsp;    void viewOneVehicle(Vehicle vehicle);
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;    /**
+<i>20</i>&nbsp;     * ????????? ?? vehicles ???? user.
+<i>21</i>&nbsp;     * @param DaoVehicles ?? vehicles ??? user.
+<i>22</i>&nbsp;     */
+<i>23</i>&nbsp;    void showVehicles(ArrayList&lt;Vehicle&gt; DaoVehicles);
+<i>24</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:59</div>
+</div>
+</body>
+</html>

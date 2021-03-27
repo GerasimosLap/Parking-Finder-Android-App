@@ -1,0 +1,141 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: NewParkingPresenter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.parking.ui.newParking</a> ]
+</div>
+
+<h1>Coverage Summary for Class: NewParkingPresenter (com.example.parking.ui.newParking)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">NewParkingPresenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    94.1%
+  </span>
+  <span class="absValue">
+    (16/ 17)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.parking.ui.newParking;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.os.Build;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import androidx.annotation.RequiresApi;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import com.example.parking.dao.ParkingSpaceDAO;
+<i>8</i>&nbsp;import com.example.parking.dao.UserDAO;
+<i>9</i>&nbsp;import com.example.parking.domain.Address;
+<i>10</i>&nbsp;import com.example.parking.domain.ParkingSpace;
+<i>11</i>&nbsp;import com.example.parking.domain.User;
+<i>12</i>&nbsp;import com.example.parking.domain.Vehicle;
+<i>13</i>&nbsp;import com.example.parking.util.Credits;
+<i>14</i>&nbsp;import com.example.parking.util.ZipCode;
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;import java.util.ArrayList;
+<i>17</i>&nbsp;import java.util.Date;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;public class NewParkingPresenter {
+<i>20</i>&nbsp;    NewParkingView view;
+<i>21</i>&nbsp;    UserDAO userDAO;
+<i>22</i>&nbsp;    ParkingSpaceDAO parkingDAO;
+<i>23</i>&nbsp;    User u;
+<i>24</i>&nbsp;
+<b class="fc"><i>25</i>&nbsp;    public NewParkingPresenter(NewParkingView view, UserDAO userDAO, ParkingSpaceDAO parkingDAO) {</b>
+<b class="fc"><i>26</i>&nbsp;        this.view = view;</b>
+<b class="fc"><i>27</i>&nbsp;        this.userDAO = userDAO;</b>
+<b class="fc"><i>28</i>&nbsp;        this.parkingDAO = parkingDAO;</b>
+<b class="fc"><i>29</i>&nbsp;        u = userDAO.find(view.getUsername());</b>
+<b class="fc"><i>30</i>&nbsp;        setPlate();</b>
+<i>31</i>&nbsp;    }
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;    /**
+<i>34</i>&nbsp;     * ?????????? ????????? ???? ?????????? ?? ?? ???????????? ???????? ??? ??? ??????????
+<i>35</i>&nbsp;     */
+<i>36</i>&nbsp;    @RequiresApi(api = Build.VERSION_CODES.O)
+<i>37</i>&nbsp;    public void add() {
+<b class="fc"><i>38</i>&nbsp;        ParkingSpace p = new ParkingSpace(new Address(view.getStreet(), view.getStreetNumber(), new ZipCode(Integer.valueOf(view.getZipCode()))), true, new Credits(Integer.valueOf(view.getCredits())), view.getTimeRange(), new Date(), u, view.getPlate());</b>
+<b class="pc"><i>39</i>&nbsp;        if (parkingDAO.find(p) == null) {</b>
+<b class="fc"><i>40</i>&nbsp;            parkingDAO.save(p);</b>
+<b class="fc"><i>41</i>&nbsp;            view.makeToast(&quot;Parking space added!&quot;);</b>
+<b class="fc"><i>42</i>&nbsp;            view.successfullyFinishActivity();</b>
+<i>43</i>&nbsp;        }else{
+<b class="nc"><i>44</i>&nbsp;            view.makeToast(&quot;Parking space already exists!&quot;);</b>
+<i>45</i>&nbsp;        }
+<i>46</i>&nbsp;    }
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;    /**
+<i>49</i>&nbsp;     * ????? ?? plates ???? spinner.
+<i>50</i>&nbsp;     */
+<i>51</i>&nbsp;    void setPlate(){
+<b class="fc"><i>52</i>&nbsp;        ArrayList&lt;String&gt; pl = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>53</i>&nbsp;        for(Vehicle v: u.getVehicles()){</b>
+<b class="fc"><i>54</i>&nbsp;            pl.add(v.getPlate());</b>
+<b class="fc"><i>55</i>&nbsp;        }</b>
+<b class="fc"><i>56</i>&nbsp;        view.setSpinner(pl);</b>
+<i>57</i>&nbsp;    }
+<i>58</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:59</div>
+</div>
+</body>
+</html>

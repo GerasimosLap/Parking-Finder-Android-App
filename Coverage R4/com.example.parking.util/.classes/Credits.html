@@ -1,0 +1,123 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Credits</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.parking.util</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Credits (com.example.parking.util)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Credits</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/ 12)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.parking.util;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;public class Credits {
+<i>4</i>&nbsp;    private int points;
+<i>5</i>&nbsp;
+<b class="fc"><i>6</i>&nbsp;    public Credits(int points) {</b>
+<b class="fc"><i>7</i>&nbsp;        this.points = points;</b>
+<i>8</i>&nbsp;    }
+<i>9</i>&nbsp;
+<b class="fc"><i>10</i>&nbsp;    public Credits() {</b>
+<b class="fc"><i>11</i>&nbsp;        this.points = 0;</b>
+<i>12</i>&nbsp;    }
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    public int getPoints() {
+<b class="fc"><i>15</i>&nbsp;        return points;</b>
+<i>16</i>&nbsp;    }
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    public void setPoints(int points) {
+<b class="fc"><i>19</i>&nbsp;       this.points = points;</b>
+<i>20</i>&nbsp;    }
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    public void addCredits(int points){
+<b class="fc"><i>23</i>&nbsp;        setPoints(points+getPoints());</b>
+<i>24</i>&nbsp;    }
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    /**
+<i>27</i>&nbsp;     * ??????? ??? ???????? credits.
+<i>28</i>&nbsp;     * @param points Credits ???? ????????.
+<i>29</i>&nbsp;     * @return ?????????? boolean ?? ?????? ?? ????? ? ???????? ??? ??? ??????????.
+<i>30</i>&nbsp;     */
+<i>31</i>&nbsp;    public boolean removeCredits(int points){
+<b class="fc"><i>32</i>&nbsp;        int currentPoints=getPoints();</b>
+<b class="fc"><i>33</i>&nbsp;        if(currentPoints&lt;points){</b>
+<b class="fc"><i>34</i>&nbsp;            return false;</b>
+<i>35</i>&nbsp;        }
+<b class="fc"><i>36</i>&nbsp;        setPoints(currentPoints-points);</b>
+<b class="fc"><i>37</i>&nbsp;        return true;</b>
+<i>38</i>&nbsp;    }
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:59</div>
+</div>
+</body>
+</html>

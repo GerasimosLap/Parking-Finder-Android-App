@@ -1,0 +1,141 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: LoginPresenter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.parking.ui.login</a> ]
+</div>
+
+<h1>Coverage Summary for Class: LoginPresenter (com.example.parking.ui.login)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">LoginPresenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/ 15)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.parking.ui.login;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.parking.dao.UserDAO;
+<i>4</i>&nbsp;import com.example.parking.domain.User;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;public class LoginPresenter {
+<i>7</i>&nbsp;    private LoginView view;
+<i>8</i>&nbsp;    private UserDAO dao;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;    /**
+<i>11</i>&nbsp;     * ?????????? ??? Presenter.
+<i>12</i>&nbsp;     * @param view ??? instance ??? view
+<i>13</i>&nbsp;     * @param dao ??? instance ??? ?????? UserDao
+<i>14</i>&nbsp;     */
+<i>15</i>&nbsp;
+<b class="fc"><i>16</i>&nbsp;    public LoginPresenter(LoginView view, UserDAO dao){</b>
+<b class="fc"><i>17</i>&nbsp;        this.view=view;</b>
+<b class="fc"><i>18</i>&nbsp;        this.dao=dao;</b>
+<i>19</i>&nbsp;    }
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    /**
+<i>22</i>&nbsp;     * ?????????? ??? Presenter.
+<i>23</i>&nbsp;     * @param username ??? string ?? ????? ????? ?? ????? ??? ?????? ??? ????? ?? ????? login
+<i>24</i>&nbsp;     * @param password ??? string ?? ????? ????? ? ??????? ??? ?????? ??? ????? ?? ????? login
+<i>25</i>&nbsp;     */
+<i>26</i>&nbsp;    public void login(String username,String password){
+<b class="fc"><i>27</i>&nbsp;        User user =  dao.login(username,password);</b>
+<b class="fc"><i>28</i>&nbsp;        if(user!=null){</b>
+<b class="fc"><i>29</i>&nbsp;            view.createToast(&quot;Logged in&quot;);</b>
+<b class="fc"><i>30</i>&nbsp;            view.moveOn();</b>
+<i>31</i>&nbsp;        }else{
+<b class="fc"><i>32</i>&nbsp;            view.createToast(&quot;Wrong username or password&quot;);</b>
+<i>33</i>&nbsp;        }
+<i>34</i>&nbsp;    }
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    /**
+<i>37</i>&nbsp;     * ????????? ??? ?????? ??? activity SignUp
+<i>38</i>&nbsp;     * ????? ??????? ?? ?????? sign up.
+<i>39</i>&nbsp;     */
+<i>40</i>&nbsp;    public void signup(){
+<b class="fc"><i>41</i>&nbsp;        view.signup();</b>
+<i>42</i>&nbsp;    }
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    /**
+<i>45</i>&nbsp;     * ????????? ??? ?????? ???? ??????.
+<i>46</i>&nbsp;     * @param username ??? string ?? ????? ????? ?? ????? ??? ?????? ??? ????? ?? ??????? ??? ?????? ???
+<i>47</i>&nbsp;     */
+<i>48</i>&nbsp;    public String forgot(String username){
+<b class="fc"><i>49</i>&nbsp;        User user =  dao.find(username);</b>
+<b class="fc"><i>50</i>&nbsp;        if(user!=null){</b>
+<b class="fc"><i>51</i>&nbsp;            view.createToast(user.getPassword());</b>
+<b class="fc"><i>52</i>&nbsp;            return user.getPassword();</b>
+<i>53</i>&nbsp;        }else{
+<b class="fc"><i>54</i>&nbsp;            view.createToast(&quot;Username doesn&#39;t exist&quot;);</b>
+<b class="fc"><i>55</i>&nbsp;            return &quot;Username doesn&#39;t exist&quot;;</b>
+<i>56</i>&nbsp;        }
+<i>57</i>&nbsp;    }
+<i>58</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:59</div>
+</div>
+</body>
+</html>

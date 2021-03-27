@@ -1,0 +1,153 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Rating</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.parking.domain</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Rating (com.example.parking.domain)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Rating</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    72.7%
+  </span>
+  <span class="absValue">
+    (8/ 11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    84.2%
+  </span>
+  <span class="absValue">
+    (16/ 19)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.parking.domain;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;public class Rating {
+<i>4</i>&nbsp;    private int ratingScore;
+<i>5</i>&nbsp;    private String comment;
+<i>6</i>&nbsp;    private String ratedUsername;
+<i>7</i>&nbsp;    private String ratingUsername;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;
+<b class="fc"><i>11</i>&nbsp;    public Rating(int ratingScore, String comment,String ratedUsername,String ratingUsername) {</b>
+<b class="fc"><i>12</i>&nbsp;        this.ratingScore = ratingScore;</b>
+<b class="fc"><i>13</i>&nbsp;        this.comment = comment;</b>
+<b class="fc"><i>14</i>&nbsp;        this.ratedUsername=ratedUsername;</b>
+<b class="fc"><i>15</i>&nbsp;        this.ratingUsername=ratingUsername;</b>
+<i>16</i>&nbsp;    }
+<i>17</i>&nbsp;
+<b class="fc"><i>18</i>&nbsp;    public Rating() {</b>
+<b class="fc"><i>19</i>&nbsp;        this.ratingScore = 0;</b>
+<b class="fc"><i>20</i>&nbsp;        this.comment = &quot;&quot;;</b>
+<b class="fc"><i>21</i>&nbsp;        this.ratedUsername=&quot;&quot;;</b>
+<b class="fc"><i>22</i>&nbsp;        this.ratingUsername=&quot;&quot;;</b>
+<i>23</i>&nbsp;    }
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    public int getRatingScore() {
+<b class="fc"><i>26</i>&nbsp;        return ratingScore;</b>
+<i>27</i>&nbsp;    }
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;    public void setRatingScore(int ratingScore) {
+<b class="fc"><i>30</i>&nbsp;        this.ratingScore = ratingScore;</b>
+<i>31</i>&nbsp;    }
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;    public String getComment() {
+<b class="fc"><i>34</i>&nbsp;        return comment;</b>
+<i>35</i>&nbsp;    }
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;    public void setComment(String comment) {
+<b class="fc"><i>38</i>&nbsp;        this.comment = comment;</b>
+<i>39</i>&nbsp;    }
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;    public String getRatedUsername() {
+<b class="nc"><i>42</i>&nbsp;        return ratedUsername;</b>
+<i>43</i>&nbsp;    }
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;    public void setRatedUsername(String ratedUsername) {
+<b class="fc"><i>46</i>&nbsp;        this.ratedUsername = ratedUsername;</b>
+<i>47</i>&nbsp;    }
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    public String getRatingUsername() {
+<b class="nc"><i>50</i>&nbsp;        return ratingUsername;</b>
+<i>51</i>&nbsp;    }
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;    public void setRatingUsername(String ratingUsername) {
+<b class="fc"><i>54</i>&nbsp;        this.ratingUsername = ratingUsername;</b>
+<i>55</i>&nbsp;    }
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;    @Override
+<i>60</i>&nbsp;    public String toString() {
+<b class="nc"><i>61</i>&nbsp;        return  &quot;*************************\n&quot; +</b>
+<i>62</i>&nbsp;                &quot;Rating: &quot; + ratingScore +&quot; \n &quot;+
+<i>63</i>&nbsp;                &quot;Comment: &quot; + comment + &quot; \n &quot;+
+<i>64</i>&nbsp;                &quot;Rated User: &quot; + ratedUsername + &quot; \n &quot; +
+<i>65</i>&nbsp;                &quot;Rating by: &quot; + ratingUsername + &quot; \n &quot; +
+<i>66</i>&nbsp;                &quot;*************************&quot;;
+<i>67</i>&nbsp;    }
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:59</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ViewVehiclesPresenter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.parking.ui.viewVehicles</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ViewVehiclesPresenter (com.example.parking.ui.viewVehicles)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ViewVehiclesPresenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/ 7)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.parking.ui.viewVehicles;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.parking.dao.UserDAO;
+<i>4</i>&nbsp;import com.example.parking.domain.User;
+<i>5</i>&nbsp;import com.example.parking.domain.Vehicle;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import java.util.ArrayList;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;public class ViewVehiclesPresenter {
+<i>10</i>&nbsp;    private ViewVehiclesView view;
+<i>11</i>&nbsp;    private User user;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;    /**
+<i>14</i>&nbsp;     * ?????????? ??? Presenter.
+<i>15</i>&nbsp;     * @param view ??? instance ??? view
+<i>16</i>&nbsp;     * @param dao ??? instance ??? user
+<i>17</i>&nbsp;     */
+<b class="fc"><i>18</i>&nbsp;    public ViewVehiclesPresenter(ViewVehiclesView view,UserDAO dao){</b>
+<b class="fc"><i>19</i>&nbsp;        this.view=view;</b>
+<b class="fc"><i>20</i>&nbsp;        this.user = dao.find(view.getUserName());</b>
+<b class="fc"><i>21</i>&nbsp;        System.out.println(view.getUserName());</b>
+<b class="fc"><i>22</i>&nbsp;        showVehicles();</b>
+<i>23</i>&nbsp;    }
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    /**
+<i>26</i>&nbsp;     * ????????? ?? vehicles ???? user.
+<i>27</i>&nbsp;     */
+<i>28</i>&nbsp;    public void showVehicles(){
+<b class="fc"><i>29</i>&nbsp;        view.showVehicles(user.getVehicles());</b>
+<i>30</i>&nbsp;    }
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    /**
+<i>33</i>&nbsp;     * ????????? ?? ???????? ???? vehicle.
+<i>34</i>&nbsp;     * @param vehicle ?? vehicles ??? ??????????.
+<i>35</i>&nbsp;     */
+<i>36</i>&nbsp;    public void viewOneVehicle(Vehicle vehicle){
+<b class="fc"><i>37</i>&nbsp;        view.viewOneVehicle(vehicle);</b>
+<i>38</i>&nbsp;    }
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:59</div>
+</div>
+</body>
+</html>

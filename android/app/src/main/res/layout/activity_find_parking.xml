@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.findParking.FindParking">
+
+
+    <EditText
+        android:id="@+id/expectedArrivalFindParking"
+        android:layout_width="220dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="50dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/expected_arrival"
+        android:inputType="numberSigned"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/ZipForParking"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/SearchButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="56dp"
+        android:contentDescription="@string/todo"
+        app:layout_constrainedHeight="true"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toTopOf="@+id/ResultsList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/expectedArrivalFindParking"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_search"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/ZipForParking"
+        android:layout_width="220dp"
+        android:layout_height="70dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/enter_desired_zip_code"
+        android:inputType="numberSigned"
+        app:layout_constraintBottom_toTopOf="@+id/ResultsList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expectedArrivalFindParking"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:id="@+id/ResultsList"
+        android:layout_width="412dp"
+        android:layout_height="465dp"
+        android:orientation="vertical"
+        app:layout_constrainedHeight="true"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

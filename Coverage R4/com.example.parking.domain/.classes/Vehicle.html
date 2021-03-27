@@ -1,0 +1,191 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Vehicle</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.parking.domain</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Vehicle (com.example.parking.domain)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Vehicle</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/ 15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (36/ 36)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.parking.domain;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.parking.util.Colour;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;public class Vehicle {
+<i>6</i>&nbsp;	private Colour colour;
+<i>7</i>&nbsp;	private int length;//length in cm
+<i>8</i>&nbsp;	private String text;
+<i>9</i>&nbsp;	private String plate;
+<i>10</i>&nbsp;	private String model;
+<i>11</i>&nbsp;	private String brand;
+<i>12</i>&nbsp;
+<b class="fc"><i>13</i>&nbsp;	public Vehicle(Colour colour, int length, String text, String plate, String model, String brand) {</b>
+<b class="fc"><i>14</i>&nbsp;		this.colour = colour;</b>
+<b class="fc"><i>15</i>&nbsp;		this.length = length;</b>
+<b class="fc"><i>16</i>&nbsp;		this.text = text;</b>
+<b class="fc"><i>17</i>&nbsp;		this.plate = plate;</b>
+<b class="fc"><i>18</i>&nbsp;		this.model = model;</b>
+<b class="fc"><i>19</i>&nbsp;		this.brand = brand;</b>
+<i>20</i>&nbsp;	}
+<i>21</i>&nbsp;
+<b class="fc"><i>22</i>&nbsp;	public Vehicle(){</b>
+<b class="fc"><i>23</i>&nbsp;		this.colour = Colour.Black;</b>
+<b class="fc"><i>24</i>&nbsp;		this.length = 0;</b>
+<b class="fc"><i>25</i>&nbsp;		this.text = &quot;&quot;;</b>
+<b class="fc"><i>26</i>&nbsp;		this.plate = &quot;&quot;;</b>
+<b class="fc"><i>27</i>&nbsp;		this.model = &quot;&quot;;</b>
+<b class="fc"><i>28</i>&nbsp;		this.brand = &quot;&quot;;</b>
+<i>29</i>&nbsp;	}
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;	public void setColour(Colour colour) {
+<b class="fc"><i>33</i>&nbsp;		this.colour = colour;</b>
+<i>34</i>&nbsp;	}
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;	public void setLength(int length) {
+<b class="fc"><i>37</i>&nbsp;		this.length = length;</b>
+<i>38</i>&nbsp;	}
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;	public void setText(String text) {
+<b class="fc"><i>41</i>&nbsp;		this.text = text;</b>
+<i>42</i>&nbsp;	}
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;	/**
+<i>45</i>&nbsp;	 * ??????? ?? ?? plate ????? ?? ????? ?????.
+<i>46</i>&nbsp;	 * @param plate Plate ???? ??????????
+<i>47</i>&nbsp;	 */
+<i>48</i>&nbsp;	public void setPlate(String plate) {
+<b class="fc"><i>49</i>&nbsp;		String letters = plate.substring(0,3).toUpperCase();</b>
+<b class="fc"><i>50</i>&nbsp;		for(int i=0;i&lt;letters.length();i++){</b>
+<b class="fc"><i>51</i>&nbsp;			char letter = letters.charAt(i);</b>
+<b class="pc"><i>52</i>&nbsp;			if(letter&lt;65 || letter&gt;90) return;</b>
+<i>53</i>&nbsp;		}
+<b class="fc"><i>54</i>&nbsp;		String numbers = plate.substring(3);</b>
+<b class="fc"><i>55</i>&nbsp;		for(int i=0;i&lt;numbers.length();i++){</b>
+<b class="fc"><i>56</i>&nbsp;			int number = Integer.valueOf(numbers.charAt(i));</b>
+<b class="pc"><i>57</i>&nbsp;			if(number&lt;48 || number&gt;57) return;</b>
+<i>58</i>&nbsp;		}
+<b class="pc"><i>59</i>&nbsp;		if(letters.length()+numbers.length()!=7) return;</b>
+<b class="fc"><i>60</i>&nbsp;		this.plate = plate;</b>
+<i>61</i>&nbsp;	}
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;	public void setModel(String model) {
+<b class="fc"><i>64</i>&nbsp;		this.model = model;</b>
+<i>65</i>&nbsp;	}
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;	public void setBrand(String brand) {
+<b class="fc"><i>68</i>&nbsp;		this.brand = brand;</b>
+<i>69</i>&nbsp;	}
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;	public String getColour() {
+<b class="fc"><i>72</i>&nbsp;		return colour.toString();</b>
+<i>73</i>&nbsp;	}
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;	public int getLength() {
+<b class="fc"><i>76</i>&nbsp;		return length;</b>
+<i>77</i>&nbsp;	}
+<i>78</i>&nbsp;
+<i>79</i>&nbsp;	public String getText() {
+<b class="fc"><i>80</i>&nbsp;		return text;</b>
+<i>81</i>&nbsp;	}
+<i>82</i>&nbsp;
+<i>83</i>&nbsp;	public String getPlate() {
+<b class="fc"><i>84</i>&nbsp;		return plate;</b>
+<i>85</i>&nbsp;	}
+<i>86</i>&nbsp;
+<i>87</i>&nbsp;	public String getModel() {
+<b class="fc"><i>88</i>&nbsp;		return model;</b>
+<i>89</i>&nbsp;	}
+<i>90</i>&nbsp;
+<i>91</i>&nbsp;	public String getBrand() {
+<b class="fc"><i>92</i>&nbsp;		return brand;</b>
+<i>93</i>&nbsp;	}
+<i>94</i>&nbsp;
+<i>95</i>&nbsp;	@Override
+<i>96</i>&nbsp;	public String toString() {
+<b class="fc"><i>97</i>&nbsp;		return &quot;Vehicle{&quot; +</b>
+<i>98</i>&nbsp;				&quot;colour=&quot; + colour +
+<i>99</i>&nbsp;				&quot;, length=&quot; + length +
+<i>100</i>&nbsp;				&quot;, text=&#39;&quot; + text + &#39;\&#39;&#39; +
+<i>101</i>&nbsp;				&quot;, plate=&#39;&quot; + plate + &#39;\&#39;&#39; +
+<i>102</i>&nbsp;				&quot;, model=&#39;&quot; + model + &#39;\&#39;&#39; +
+<i>103</i>&nbsp;				&quot;, brand=&#39;&quot; + brand + &#39;\&#39;&#39; +
+<i>104</i>&nbsp;				&#39;}&#39;;
+<i>105</i>&nbsp;	}
+<i>106</i>&nbsp;
+<i>107</i>&nbsp;
+<i>108</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-03 19:59</div>
+</div>
+</body>
+</html>
